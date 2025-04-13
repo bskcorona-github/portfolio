@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ポートフォリオ | My Works</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">My Portfolio</h1>
+          <h2 class="subtitle">クリエイティブな作品を展示しています</h2>
+        </div>
+      </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <!-- 自己紹介セクション -->
+      <section class="section" id="about">
+        <div class="container">
+          <h2 class="title is-2 has-text-centered">About Me</h2>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content has-text-centered">
+                <p class="is-size-5">
+                  ウェブ開発とデザインを専門とするフリーランスクリエイターです。
+                  使いやすく美しいウェブサイトやアプリケーションの制作に情熱を持っています。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ポートフォリオセクション -->
+      <section class="section" id="portfolio">
+        <div class="container">
+          <h2 class="title is-2 has-text-centered">作品集</h2>
+          <div class="columns is-multiline" id="portfolio-items">
+            <!-- ポートフォリオアイテムはJavaScriptで動的に生成されます -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Portfolio Gallery</strong> by <a href="#">Your Name</a>.
+          <br />
+          © 2023 All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
