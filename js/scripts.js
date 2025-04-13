@@ -175,11 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
       header.addEventListener("click", () => {
         container.classList.toggle("active");
       });
-
-      // 最初のトグルを開いた状態にする
-      if (container === toggleContainers[0]) {
-        container.classList.add("active");
-      }
     });
   }
 
