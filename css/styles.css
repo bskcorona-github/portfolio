@@ -238,3 +238,49 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* トグルコンテナのスタイル */
+.toggle-container {
+  margin-bottom: 1.5rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toggle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-header:hover {
+  background-color: #eeeeee;
+}
+
+.toggle-header h3 {
+  margin: 0;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.toggle-container.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.toggle-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.toggle-container.active .toggle-content {
+  padding: 1rem;
+  max-height: 1000px; /* 十分な高さを確保 */
+}

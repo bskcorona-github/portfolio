@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
+  // トグル機能の初期化
+  initToggles();
+
   // ポートフォリオアイテムの表示
   function displayPortfolioItems(items = portfolioItems) {
     const portfolioContainer = document.getElementById("portfolio-items");
@@ -160,6 +163,24 @@ document.addEventListener("DOMContentLoaded", function () {
       other: "その他",
     };
     return categories[category] || category;
+  }
+
+  // トグル機能の初期化
+  function initToggles() {
+    const toggleContainers = document.querySelectorAll(".toggle-container");
+
+    toggleContainers.forEach((container) => {
+      const header = container.querySelector(".toggle-header");
+
+      header.addEventListener("click", () => {
+        container.classList.toggle("active");
+      });
+
+      // 最初のトグルを開いた状態にする
+      if (container === toggleContainers[0]) {
+        container.classList.add("active");
+      }
+    });
   }
 
   // 初期表示
