@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "おくすり飲めたねリマインダー",
       description: "お薬の服用をリマインドし、記録するウェブアプリケーション。",
       image:
-        "https://images.unsplash.com/photo-1587740906939-893201df939a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1603024825591-09b15f0418e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
       category: "app",
       url: "https://okusuri-nometane.vercel.app/",
     },
