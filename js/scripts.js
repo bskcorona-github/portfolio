@@ -31,6 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "web",
       url: "https://sample-lp4.vercel.app/",
     },
+    {
+      id: 4,
+      title: "おくすり飲めたねリマインダー",
+      description: "お薬の服用をリマインドし、記録するウェブアプリケーション。",
+      image:
+        "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", // Placeholder image
+      category: "app",
+      url: "https://okusuri-nometane.vercel.app/",
+    },
     // {
     //   id: 4,
     //   title: "StudyFlow",
