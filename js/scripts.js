@@ -31,16 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "web",
       url: "https://sample-lp4.vercel.app/",
     },
-    {
-      id: 4,
-      title: "StudyFlow",
-      description:
-        "AIを活用して学習計画を自動生成するウェブアプリ。ユーザーの目標と期限に合わせて毎日の学習タスクを提案し、進捗に応じて自動調整する機能を備えています。",
-      image:
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      category: "app",
-      url: "https://studyflow-woad.vercel.app/",
-    },
+    // {
+    //   id: 4,
+    //   title: "StudyFlow",
+    //   description:
+    //     "AIを活用して学習計画を自動生成するウェブアプリ。ユーザーの目標と期限に合わせて毎日の学習タスクを提案し、進捗に応じて自動調整する機能を備えています。",
+    //   image:
+    //     "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    //   category: "app",
+    //   url: "https://studyflow-woad.vercel.app/",
+    // },
   ];
 
   // トグル機能の初期化
