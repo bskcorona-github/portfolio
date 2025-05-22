@@ -39,6 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "app",
       url: "https://okusuri-nometane.vercel.app/",
     },
+    {
+      id: 5,
+      title: "BeautySalon",
+      description:
+        "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPaGWgQ6Ew-JtPl92CwXTF_4lMXmuWGG9D1Q&usqp=CAU",
+      category: "web",
+      url: "https://sample-lp10.vercel.app/",
+    },
     // {
     //   id: 4,
     //   title: "StudyFlow",
