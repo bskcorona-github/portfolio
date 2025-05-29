@@ -49,6 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "web",
       url: "https://sample-lp10.vercel.app/",
     },
+    {
+      id: 6,
+      title: "農力アップ 産業振興株式会社",
+      description:
+        "農業用肥料の製造・販売企業のランディングページ。製品情報、効果・メリット、導入事例、技術的特長などを詳細に紹介。ユーザーフレンドリーなUI設計で、農家の課題解決を重視したコンテンツ構成となっています。",
+      image:
+        "https://via.placeholder.com/600x400/4CAF50/FFFFFF?text=Nouryoku+Up",
+      category: "web",
+      url: "https://sangyousinkoulp.vercel.app/",
+    },
     // {
     //   id: 4,
     //   title: "StudyFlow",
