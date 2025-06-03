@@ -47,9 +47,9 @@ import {
   TbFileDatabase,
   TbCloud,
   TbVersions,
+  TbSettings,
 } from "react-icons/tb";
-import { FaDatabase, FaProjectDiagram, FaJava } from "react-icons/fa";
-import { MdIntegrationInstructions } from "react-icons/md";
+import { FaDatabase, FaProjectDiagram } from "react-icons/fa";
 
 const TechStackSection = () => {
   const languageStats = [
@@ -85,7 +85,7 @@ const TechStackSection = () => {
       { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
       { name: "Express.js", icon: SiExpress, color: "#000000" },
       { name: "Material UI", icon: SiMui, color: "#007fff" },
-      { name: "VBA", icon: FaJava, color: "#ed8b00" },
+      { name: "VBA", icon: TbCode, color: "#ed8b00" },
     ],
     "Databases & Database Tools": [
       { name: "MySQL", icon: SiMysql, color: "#4479a1" },
@@ -105,7 +105,7 @@ const TechStackSection = () => {
       { name: "AWS Cognito", icon: SiAmazonaws, color: "#ff9900" },
       {
         name: "CodePipeline",
-        icon: MdIntegrationInstructions,
+        icon: TbSettings,
         color: "#ff9900",
       },
       { name: "CodeCommit", icon: SiGit, color: "#ff9900" },
