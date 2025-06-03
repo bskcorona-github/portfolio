@@ -6,6 +6,7 @@ const nextConfig = {
   },
   // Vercel用の基本設定
   compress: true,
+  transpilePackages: ["@splinetool/react-spline", "@splinetool/runtime"],
 };
 
 module.exports = nextConfig;

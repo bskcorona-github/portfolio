@@ -38,18 +38,22 @@ import {
   SiJenkins,
   SiSonarqube,
   SiSlack,
+  SiAwslambda,
+  SiAmazonrds,
 } from "react-icons/si";
 import { BiLogoGoLang } from "react-icons/bi";
 import {
   TbRobot,
   TbDatabase,
   TbCode,
+  TbBrandVscode,
   TbFileDatabase,
   TbCloud,
   TbVersions,
-  TbSettings,
+  TbBrandTorchain,
 } from "react-icons/tb";
-import { FaDatabase, FaProjectDiagram } from "react-icons/fa";
+import { FaDatabase, FaProjectDiagram, FaJava } from "react-icons/fa";
+import { MdIntegrationInstructions } from "react-icons/md";
 
 const TechStackSection = () => {
   const languageStats = [
@@ -85,7 +89,7 @@ const TechStackSection = () => {
       { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
       { name: "Express.js", icon: SiExpress, color: "#000000" },
       { name: "Material UI", icon: SiMui, color: "#007fff" },
-      { name: "VBA", icon: TbCode, color: "#ed8b00" },
+      { name: "VBA", icon: FaJava, color: "#ed8b00" },
     ],
     "Databases & Database Tools": [
       { name: "MySQL", icon: SiMysql, color: "#4479a1" },
@@ -99,13 +103,13 @@ const TechStackSection = () => {
     ],
     "Cloud Services": [
       { name: "AWS", icon: SiAmazonaws, color: "#ff9900" },
-      { name: "AWS Lambda", icon: TbCloud, color: "#ff9900" },
-      { name: "AWS RDS", icon: TbDatabase, color: "#ff9900" },
+      { name: "AWS Lambda", icon: SiAwslambda, color: "#ff9900" },
+      { name: "AWS RDS", icon: SiAmazonrds, color: "#ff9900" },
       { name: "CloudFormation", icon: TbCloud, color: "#ff9900" },
       { name: "AWS Cognito", icon: SiAmazonaws, color: "#ff9900" },
       {
         name: "CodePipeline",
-        icon: TbSettings,
+        icon: MdIntegrationInstructions,
         color: "#ff9900",
       },
       { name: "CodeCommit", icon: SiGit, color: "#ff9900" },
