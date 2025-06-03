@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import Link from "next/link";
 import { InteractiveRobotSpline } from "./interactive-3d-robot";
 import MatrixRain from "./matrix-code";
 
@@ -534,15 +535,17 @@ export const HeroSection: React.FC = () => {
             まだ初心者ですが、革新的なWebアプリケーションを構築し、AIの統合による優れたユーザーエクスペリエンスを探求しています。
           </motion.p>
 
-          <motion.button
-            variants={itemVariants}
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
-            className="mt-[100px] sm:mt-[100px] px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            aria-label="作品を見る"
-          >
-            作品を見る
-          </motion.button>
+          <Link href="/sections/projects">
+            <motion.button
+              variants={itemVariants}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+              className="mt-[100px] sm:mt-[100px] px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              aria-label="作品を見る"
+            >
+              作品を見る
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 
