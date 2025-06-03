@@ -38,19 +38,15 @@ import {
   SiJenkins,
   SiSonarqube,
   SiSlack,
-  SiAwslambda,
-  SiAmazonrds,
 } from "react-icons/si";
 import { BiLogoGoLang } from "react-icons/bi";
 import {
   TbRobot,
   TbDatabase,
   TbCode,
-  TbBrandVscode,
   TbFileDatabase,
   TbCloud,
   TbVersions,
-  TbBrandTorchain,
 } from "react-icons/tb";
 import { FaDatabase, FaProjectDiagram, FaJava } from "react-icons/fa";
 import { MdIntegrationInstructions } from "react-icons/md";
@@ -103,8 +99,8 @@ const TechStackSection = () => {
     ],
     "Cloud Services": [
       { name: "AWS", icon: SiAmazonaws, color: "#ff9900" },
-      { name: "AWS Lambda", icon: SiAwslambda, color: "#ff9900" },
-      { name: "AWS RDS", icon: SiAmazonrds, color: "#ff9900" },
+      { name: "AWS Lambda", icon: TbCloud, color: "#ff9900" },
+      { name: "AWS RDS", icon: TbDatabase, color: "#ff9900" },
       { name: "CloudFormation", icon: TbCloud, color: "#ff9900" },
       { name: "AWS Cognito", icon: SiAmazonaws, color: "#ff9900" },
       {
