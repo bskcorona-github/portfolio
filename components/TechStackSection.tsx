@@ -32,10 +32,28 @@ import {
   SiFigma,
   SiOpenai,
   SiNotion,
+  SiVisualstudiocode,
+  SiPostman,
+  SiUbuntu,
+  SiJenkins,
+  SiSonarqube,
+  SiSlack,
+  SiAwslambda,
+  SiAmazonrds,
 } from "react-icons/si";
 import { BiLogoGoLang } from "react-icons/bi";
-import { TbRobot, TbDatabase, TbCode } from "react-icons/tb";
-import { FaDatabase } from "react-icons/fa";
+import {
+  TbRobot,
+  TbDatabase,
+  TbCode,
+  TbBrandVscode,
+  TbFileDatabase,
+  TbCloud,
+  TbVersions,
+  TbBrandTorchain,
+} from "react-icons/tb";
+import { FaDatabase, FaProjectDiagram, FaJava } from "react-icons/fa";
+import { MdIntegrationInstructions } from "react-icons/md";
 
 const TechStackSection = () => {
   const languageStats = [
@@ -61,6 +79,7 @@ const TechStackSection = () => {
     "Languages & Frameworks": [
       { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
       { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
+      { name: "Python", icon: SiPython, color: "#3776ab" },
       { name: "React", icon: SiReact, color: "#61dafb" },
       { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
       { name: "Vue.js", icon: SiVuedotjs, color: "#4fc08d" },
@@ -70,28 +89,65 @@ const TechStackSection = () => {
       { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
       { name: "Express.js", icon: SiExpress, color: "#000000" },
       { name: "Material UI", icon: SiMui, color: "#007fff" },
+      { name: "VBA", icon: FaJava, color: "#ed8b00" },
     ],
     "Databases & Database Tools": [
       { name: "MySQL", icon: SiMysql, color: "#4479a1" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
       { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
+      { name: "PL/SQL", icon: TbFileDatabase, color: "#ff0000" },
       { name: "DBeaver", icon: TbDatabase, color: "#2c5282" },
       { name: "HeidiSQL", icon: FaDatabase, color: "#4479a1" },
+      { name: "SQLdeveloper", icon: FaDatabase, color: "#ff0000" },
+      { name: "pgmodeler", icon: TbDatabase, color: "#336791" },
     ],
-    "AI & Development Tools": [
-      { name: "Claude", icon: SiOpenai, color: "#ff6b35" },
-      { name: "MCP Server", icon: TbRobot, color: "#8b5cf6" },
-      { name: "Figma", icon: SiFigma, color: "#f24e1e" },
-      { name: "Notion", icon: SiNotion, color: "#000000" },
-      { name: "Cursor", icon: TbCode, color: "#6366f1" },
-    ],
-    "Tools & Cloud": [
+    "Cloud Services": [
       { name: "AWS", icon: SiAmazonaws, color: "#ff9900" },
+      { name: "AWS Lambda", icon: SiAwslambda, color: "#ff9900" },
+      { name: "AWS RDS", icon: SiAmazonrds, color: "#ff9900" },
+      { name: "CloudFormation", icon: TbCloud, color: "#ff9900" },
+      { name: "AWS Cognito", icon: SiAmazonaws, color: "#ff9900" },
+      {
+        name: "CodePipeline",
+        icon: MdIntegrationInstructions,
+        color: "#ff9900",
+      },
+      { name: "CodeCommit", icon: SiGit, color: "#ff9900" },
       { name: "Vercel", icon: SiVercel, color: "#000000" },
+    ],
+    "Development Tools": [
+      {
+        name: "Visual Studio Code",
+        icon: SiVisualstudiocode,
+        color: "#007acc",
+      },
+      { name: "Cursor", icon: TbCode, color: "#6366f1" },
       { name: "Docker", icon: SiDocker, color: "#2496ed" },
+      { name: "Postman", icon: SiPostman, color: "#ff6c37" },
+      { name: "Ubuntu", icon: SiUbuntu, color: "#e95420" },
+    ],
+    "Version Control": [
       { name: "Git", icon: SiGit, color: "#f05032" },
       { name: "GitHub", icon: SiGithub, color: "#181717" },
       { name: "GitLab", icon: SiGitlab, color: "#fc6d26" },
+      { name: "TortoiseSVN", icon: TbVersions, color: "#0066cc" },
+    ],
+    "CI/CD": [
+      { name: "Jenkins", icon: SiJenkins, color: "#d33833" },
+      { name: "SonarQube", icon: SiSonarqube, color: "#4e9bcd" },
+    ],
+    "Project Management": [
+      { name: "Redmine", icon: FaProjectDiagram, color: "#b32d2e" },
+      { name: "Slack", icon: SiSlack, color: "#4a154b" },
+      { name: "Notion", icon: SiNotion, color: "#000000" },
+      { name: "Backlog", icon: FaProjectDiagram, color: "#00a960" },
+    ],
+    "AI & Design Tools": [
+      { name: "Claude", icon: SiOpenai, color: "#ff6b35" },
+      { name: "MCP Server", icon: TbRobot, color: "#8b5cf6" },
+      { name: "Figma", icon: SiFigma, color: "#f24e1e" },
+    ],
+    "Other Tools": [
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
       { name: "Prisma", icon: SiPrisma, color: "#2d3748" },
       { name: "Discord", icon: SiDiscord, color: "#5865f2" },
