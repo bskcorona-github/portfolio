@@ -57,6 +57,15 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "web",
       url: "https://sangyousinkoulp.vercel.app/",
     },
+    {
+      id: 7,
+      title: "Magic MCP",
+      description:
+        "MagicMCPServerを活用したかっこいいヒーローセクション。3Dロボット、WebGLライトニング、マトリックスコードが融合したインタラクティブな次世代Webエクスペリエンスを提供します。React、Tailwind CSS、Framer Motion、WebGLを使用したモダンな技術スタックで構築されています。",
+      image: "https://via.placeholder.com/600x400/6366f1/FFFFFF?text=Magic+MCP",
+      category: "web",
+      url: "https://magic-website-sigma.vercel.app/",
+    },
     // {
     //   id: 4,
     //   title: "StudyFlow",
