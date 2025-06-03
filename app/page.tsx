@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* Skip to main content link */}
-      <a
+      {/* <a
         href="#main-content"
         className="skip-link"
         onClick={(e) => {
@@ -17,7 +17,7 @@ export default function Home() {
         }}
       >
         メインコンテンツにスキップ
-      </a>
+      </a> */}
 
       <div className="relative w-full bg-black text-white overflow-hidden">
         {/* Navigation */}
