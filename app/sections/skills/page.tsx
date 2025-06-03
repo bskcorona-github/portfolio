@@ -2,11 +2,58 @@
 
 import React from "react";
 import { Lightning } from "@/components/ui/hero-odyssey";
-import TechStackSection from "@/components/TechStackSection";
+// import TechStackSection from "@/components/TechStackSection";
 import { Navigation } from "@/components/Navigation";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import MatrixRain from "@/components/ui/matrix-code";
 import { motion } from "framer-motion";
+
+// 一時的なシンプルなスキルセクション
+const SimpleTechStackSection = () => {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold text-white mb-6">
+            🛠 <span className="gradient-text">Skills & Tools</span>
+          </h2>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            現代的なWeb開発に特化した技術スタックとツールセット
+          </p>
+        </motion.div>
+
+        <div className="glass-effect rounded-3xl p-8">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">
+            技術スタック（テスト中）
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="text-center p-4 bg-white/10 rounded-lg">
+              <div className="text-2xl mb-2">⚛️</div>
+              <p className="text-white">React</p>
+            </div>
+            <div className="text-center p-4 bg-white/10 rounded-lg">
+              <div className="text-2xl mb-2">🔷</div>
+              <p className="text-white">TypeScript</p>
+            </div>
+            <div className="text-center p-4 bg-white/10 rounded-lg">
+              <div className="text-2xl mb-2">▲</div>
+              <p className="text-white">Next.js</p>
+            </div>
+            <div className="text-center p-4 bg-white/10 rounded-lg">
+              <div className="text-2xl mb-2">🎨</div>
+              <p className="text-white">Tailwind CSS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default function SkillsPage() {
   const ROBOT_SCENE_URL =
@@ -72,7 +119,7 @@ export default function SkillsPage() {
       {/* Content with glassmorphism */}
       <div className="relative z-20 px-8 pb-8">
         <div className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-3xl">
-          <TechStackSection />
+          <SimpleTechStackSection />
         </div>
       </div>
     </main>
