@@ -1,197 +1,197 @@
-# Modern Portfolio Website - Hero Odyssey Edition
+# Magic MCP Website ✨
 
-> **Next.js + TypeScript + Tailwind CSS + WebGL で構築された次世代ポートフォリオサイト**
+> **Model Context Protocol (MCP)** の実装プラットフォーム - 未来的なデザインと 3D インタラクションを組み合わせた革新的なウェブサイト
 
-## 🌟 新機能 - Hero Odyssey Integration
+## 🌟 特徴
 
-- **WebGL ライトニングエフェクト**: リアルタイムで動作するシェーダーベースのライトニングアニメーション
-- **インタラクティブ Hue コントロール**: スライダーでライトニングの色を動的に変更
-- **ページ分割システム**: セクション毎に独立したページとユニークな WebGL エフェクト
-- **21st.dev 風モダン UI**: 最新のデザイントレンドを採用
+このプロジェクトは、Magic MCP（Model Context Protocol）の公式ウェブサイトで、3 つの美しいレイヤーで構成された没入感のあるウェブ体験を提供します：
 
-## 🎨 デザイン特徴
+- **🔢 Matrix Code Background**: 50%透過のマトリックスレインアニメーション
+- **🤖 3D Interactive Robot**: Spline で作成されたインタラクティブな 3D ロボット「Whobee」
+- **⚡ Hero Odyssey Interface**: ライトニングエフェクトと洗練された UI
 
-### Hero Odyssey ベースの要素
+## 📱 ページ構成
 
-- **WebGL シェーダー**: カスタマイズ可能なライトニングエフェクト
-- **グラスモーフィズム**: 透明度とブラー効果を活用した UI
-- **フローティング要素**: 技術スタックを示すアニメーション付きカード
-- **レスポンシブナビゲーション**: モバイルメニュー対応
+### 主要ページ
 
-### ページ別テーマカラー
-
-- **Home**: ブルー・パープルグラデーション (Hue: 220)
-- **Experience**: パープル・ブルーグラデーション (Hue: 280)
-- **Projects**: グリーン・シアングラデーション (Hue: 150)
-- **Skills**: オレンジ・レッドグラデーション (Hue: 30)
+- **🏠 ホーム**: Magic MCP プラットフォームの概要とヒーローセクション
+- **⚙️ 機能**: MCP の技術仕様と主要機能の詳細
+- **📊 ダッシュボード**: MCP サーバーのリアルタイム監視と管理
+- **💼 ユースケース**: Magic MCP を活用した実際の統合パターンと事例
+- **📞 お問い合わせ**: コンタクトフォームと連絡先情報
+- **🆘 サポート**: FAQ とサポートリソース
+- **📚 ドキュメント**: 技術ドキュメントと API リファレンス
 
 ## 🚀 技術スタック
 
-### フロントエンド
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **3D Graphics**: Spline (@splinetool/react-spline)
+- **Effects**: WebGL Shaders
+- **Icons**: Lucide React
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Framer Motion** (アニメーション)
+## 🎨 デザイン要素
 
-### WebGL & シェーダー
-
-- **WebGL Context** (フラグメントシェーダー)
-- **GLSL** (OpenGL Shading Language)
-- **リアルタイムレンダリング**
-
-### UI コンポーネント
-
-- **shadcn/ui 互換**
-- **lucide-react** (アイコン)
-- **Class Variance Authority** (スタイリング)
-
-## 📂 プロジェクト構造
+### Layer Structure
 
 ```
-portfolio/
-├── app/
-│   ├── page.tsx                 # メインページ (Hero Odyssey)
-│   ├── layout.tsx              # 全体レイアウト
-│   ├── globals.css             # グローバルスタイル
-│   └── sections/               # 分割ページ
-│       ├── experience/
-│       │   └── page.tsx        # 経験セクション
-│       ├── projects/
-│       │   └── page.tsx        # プロジェクトセクション
-│       └── skills/
-│           └── page.tsx        # スキルセクション
-├── components/
-│   ├── ui/
-│   │   └── hero-odyssey.tsx    # メインHeroコンポーネント + WebGL
-│   ├── HeroSection.tsx         # 旧ヒーローセクション
-│   ├── TechStackSection.tsx    # 技術スタック表示
-│   ├── ExperienceSection.tsx   # 職歴表示
-│   └── ProjectsSection.tsx     # プロジェクト表示
-└── lib/
-    └── utils.ts                # shadcn/ui ユーティリティ
+Layer 3: Hero Odyssey (前面)
+├── グローバルナビゲーション
+├── ライトニングエフェクト (WebGL)
+├── インタラクティブUI要素
+└── カスタマイズ可能な色調整
+
+Layer 2: 3D Robot (中間層)
+├── インタラクティブ3Dロボット
+├── リアルタイム操作
+└── Spline統合
+
+Layer 1: Matrix Code (背景)
+├── バイナリー & 日本語文字
+├── 50%透過アニメーション
+└── カスタマイズ可能な速度
 ```
 
-## 🛠 開発・実行方法
+## 🛠️ セットアップ
+
+### 前提条件
+
+- Node.js 18+
+- npm または yarn
+
+### インストール
 
 ```bash
-# 依存関係のインストール
+git clone <repository-url>
+cd magic-website
 npm install
+```
 
-# 開発サーバーの起動 (通常は localhost:3000, ポート使用中は 3001)
+### 開発サーバー起動
+
+```bash
 npm run dev
+```
 
-# 本番ビルド
-npm run build
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認してください。
 
-# 本番サーバーの起動
-npm start
+## 📁 プロジェクト構造
+
+```
+magic-website/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                # ホームページ
+│   │   ├── features/               # 機能ページ
+│   │   ├── dashboard/              # ダッシュボードページ
+│   │   ├── use-cases/              # ユースケースページ
+│   │   ├── contact/                # お問い合わせページ
+│   │   ├── support/                # サポートページ
+│   │   ├── docs/                   # ドキュメントページ
+│   │   ├── sitemap.ts              # SEO サイトマップ
+│   │   ├── layout.tsx              # グローバルレイアウト
+│   │   └── globals.css             # カスタムスタイル
+│   ├── components/
+│   │   └── ui/
+│   │       ├── navigation.tsx          # グローバルナビゲーション
+│   │       ├── hero-odyssey.tsx        # Hero Odysseyコンポーネント
+│   │       ├── interactive-3d-robot.tsx # 3Dロボットコンポーネント
+│   │       ├── matrix-code.tsx         # Matrix Rainコンポーネント
+│   │       ├── features-section.tsx    # 機能セクション
+│   │       ├── about-section.tsx       # Aboutセクション
+│   │       ├── cta-section.tsx         # CTAセクション
+│   │       └── card.tsx                # shadcn/uiカードコンポーネント
+│   └── lib/
+│       └── utils.ts                # ユーティリティ関数
+├── components.json                 # shadcn/ui設定
+└── package.json
 ```
 
 ## 🎮 インタラクティブ機能
 
-### Hue スライダー
+- **🎨 ライトニング色調整**: リアルタイムでライトニングエフェクトの色を変更
+- **🤖 3D ロボット操作**: マウスやタッチでロボットと相互作用
+- **📱 レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
+- **🌈 アニメーション**: 滑らかな Framer Motion アニメーション
+- **🧭 アクティブナビゲーション**: 現在のページをハイライト表示
 
-- **リアルタイム制御**: 0-360 度の色相調整
-- **スプリングアニメーション**: なめらかなフィードバック
-- **WebGL 統合**: シェーダーに直接反映
+## 🔧 Magic MCP について
 
-### ナビゲーション
+**Model Context Protocol (MCP)** は Anthropic が開発したオープンスタンダードで、AI システムとデータソースを接続するためのプロトコルです。
 
-- **シームレス遷移**: ページ間の滑らかな移動
-- **モバイル対応**: ハンバーガーメニュー
-- **アニメーション**: Framer Motion によるトランジション
+### 主な利点
 
-## 🔧 WebGL シェーダー詳細
+- **統一されたインターフェース**: 複数のデータソースを標準化された API で接続
+- **リアルタイム統合**: AI モデルが最新のコンテキスト情報にアクセス
+- **セキュアな接続**: 安全な双方向通信を実現
+- **スケーラブルなアーキテクチャ**: エンタープライズレベルの統合に対応
 
-### フラグメントシェーダー機能
+## 📊 ダッシュボード機能
 
-- **ノイズ生成**: ペーリンノイズベースのテクスチャ
-- **色相変換**: HSV→RGB 変換アルゴリズム
-- **リアルタイム計算**: 60FPS での動的レンダリング
+新しく追加されたダッシュボードページでは：
 
-### カスタマイズ可能パラメータ
+- **リアルタイム監視**: MCP サーバーの状態とパフォーマンス
+- **サーバー管理**: 複数の MCP サーバーインスタンスの管理
+- **ログ監視**: リアルタイムログストリーミング
+- **クイックアクション**: サーバーの開始・停止・再起動
 
-```typescript
-interface LightningProps {
-  hue?: number; // 色相 (0-360)
-  xOffset?: number; // 水平オフセット
-  speed?: number; // アニメーション速度
-  intensity?: number; // 明度
-  size?: number; // サイズ倍率
-}
-```
+## 💼 ユースケース
 
-## 📱 レスポンシブ対応
+実装済みのユースケース例：
 
-- **デスクトップ**: フル WebGL エフェクト + インタラクティブ要素
-- **タブレット**: 最適化されたレイアウト
-- **モバイル**: 軽量化エフェクト + タッチ対応
+- **企業内チャットボット**: Slack/Teams 統合
+- **コード解析システム**: GitHub 連携自動レビュー
+- **データ分析ダッシュボード**: BI 統合
+- **ドキュメント検索**: ナレッジベース管理
+- **クラウドリソース管理**: AWS/Azure/GCP 統合
+- **セキュリティ監査**: 脅威検出とコンプライアンス
 
-## 🎯 ページ別機能
+## 🛡️ デプロイ
 
-### / (ホーム)
-
-- Hero Odyssey メインデザイン
-- インタラクティブ Hue スライダー
-- 技術スタック表示
-- ナビゲーションハブ
-
-### /sections/experience
-
-- 職歴タイムライン
-- パープル系 Lightning エフェクト
-- プロジェクト詳細
-
-### /sections/projects
-
-- GitHub 統合プロジェクト表示
-- グリーン系 Lightning エフェクト
-- カテゴリフィルター
-
-### /sections/skills
-
-- 技術スタック可視化
-- オレンジ系 Lightning エフェクト
-- プログレスバー
-
-## 🚀 デプロイ
+### Vercel (推奨)
 
 ```bash
-# Vercelでのデプロイ
-npx vercel
-
-# Netlifyでのデプロイ
-npm run build && npx netlify deploy --prod --dir=.next
+npm install -g vercel
+vercel
 ```
 
-## 📊 パフォーマンス
+### その他のプラットフォーム
 
-- **WebGL 最適化**: 効率的なシェーダープログラム
-- **コード分割**: Next.js App Router の活用
-- **画像最適化**: Next.js Image コンポーネント
+- Netlify
+- AWS Amplify
+- GitHub Pages
 
-## 🎨 カスタマイズ
+## 🔍 SEO 最適化
 
-### シェーダーパラメータ調整
+- ✅ 構造化データ (JSON-LD)
+- ✅ Open Graph メタタグ
+- ✅ Twitter Card 対応
+- ✅ サイトマップ自動生成
+- ✅ 適切な meta タグ設定
 
-```typescript
-<Lightning
-  hue={180} // シアン
-  xOffset={0.2} // 右寄り
-  speed={2.0} // 2倍速
-  intensity={0.8} // 高輝度
-  size={1.5} // 1.5倍サイズ
-/>
-```
+## 🤝 コントリビューション
 
-### テーマカラー変更
+1. このリポジトリをフォーク
+2. 機能ブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add amazing feature'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
 
-`tailwind.config.js`でカスタムカラーパレットを定義
+## 📄 ライセンス
+
+このプロジェクトは MIT ライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
+
+## 🙏 謝辞
+
+- **Anthropic**: Model Context Protocol の開発
+- **Spline**: 素晴らしい 3D デザインツール
+- **21st.dev**: Hero Odyssey と Matrix Code コンポーネント
+- **shadcn/ui**: 美しい UI コンポーネントライブラリ
+- **Vercel**: Next.js の開発チーム
 
 ---
 
-**作成者**: Bsk Corona  
-**GitHub**: [@bskcorona-github](https://github.com/bskcorona-github)  
-**技術**: Modern Full Stack Engineering with WebGL & Shaders  
-**インスピレーション**: [21st.dev Hero Odyssey](https://21st.dev/erikvalencia1/hero-odyssey/default)
+✨ **Magic MCP** - AI と未来をつなぐテクノロジープラットフォーム ✨
