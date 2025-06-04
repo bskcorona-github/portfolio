@@ -42,8 +42,12 @@ import {
   SiUbuntu,
   SiPostman,
   SiGoogledrive,
+  SiFramer,
+  SiWebgl,
+  SiThreedotjs,
+  SiBlender,
 } from "react-icons/si";
-import { FaDatabase, FaServer, FaRobot } from "react-icons/fa";
+import { FaDatabase, FaServer, FaRobot, FaCube, FaMagic } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 import { MdWork, MdChat, MdGroup } from "react-icons/md";
@@ -74,6 +78,30 @@ export default function SkillsPage() {
         { name: "Express.js", icon: SiExpress, color: "#000000" },
         { name: "Material UI", icon: SiMui, color: "#007fff" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
+        { name: "Framer Motion", icon: SiFramer, color: "#0055ff" },
+      ],
+    },
+    {
+      id: "3d-graphics",
+      name: "3D & Graphics",
+      icon: "🎮",
+      skills: [
+        { name: "Spline 3D", icon: FaCube, color: "#4338ca" },
+        { name: "WebGL", icon: SiWebgl, color: "#990000" },
+        { name: "Three.js", icon: SiThreedotjs, color: "#000000" },
+        { name: "Blender", icon: SiBlender, color: "#f5792a" },
+      ],
+    },
+    {
+      id: "ai-magic",
+      name: "AI & Advanced Tools",
+      icon: "🪄",
+      skills: [
+        { name: "MAGIC MCP", icon: FaMagic, color: "#8b5cf6" },
+        { name: "Claude AI", icon: FaRobot, color: "#ff6b35" },
+        { name: "Cursor AI Editor", icon: VscCode, color: "#007acc" },
+        { name: "MCP Server", icon: FaServer, color: "#6366f1" },
+        { name: "AI Integration", icon: FaRobot, color: "#10b981" },
       ],
     },
     {
@@ -103,7 +131,6 @@ export default function SkillsPage() {
         { name: "SonarQube", icon: SiSonarqube, color: "#4e9bcd" },
         { name: "Jenkins", icon: SiJenkins, color: "#d33833" },
         { name: "Google Drive", icon: SiGoogledrive, color: "#4285f4" },
-        { name: "MCP Server", icon: FaServer, color: "#6366f1" },
       ],
     },
     {
@@ -151,23 +178,26 @@ export default function SkillsPage() {
       ],
     },
     {
-      id: "ai-design",
-      name: "AI & Design Tools",
-      icon: "🎨",
-      skills: [
-        { name: "Claude", icon: FaRobot, color: "#ff6b35" },
-        { name: "Figma", icon: SiFigma, color: "#f24e1e" },
-        { name: "Notion", icon: SiNotion, color: "#000000" },
-      ],
-    },
-    {
       id: "other-tools",
-      name: "Other Tools",
+      name: "Communication & Others",
       icon: "🔧",
       skills: [
         { name: "Slack", icon: SiSlack, color: "#4a154b" },
         { name: "Discord", icon: SiDiscord, color: "#5865f2" },
-        { name: "Postman", icon: SiPostman, color: "#ff6c37" },
+        { name: "Notion", icon: SiNotion, color: "#000000" },
+        { name: "Qiita", icon: FaDatabase, color: "#55c500" },
+      ],
+    },
+    {
+      id: "cli-tools",
+      name: "CLI & Backend Development",
+      icon: "⌨️",
+      skills: [
+        { name: "Go CLI", icon: SiGo, color: "#00add8" },
+        { name: "Golang Backend", icon: SiGo, color: "#00add8" },
+        { name: "REST API", icon: FaServer, color: "#6366f1" },
+        { name: "JSON API", icon: FaDatabase, color: "#f59e0b" },
+        { name: "Command Line Tools", icon: VscCode, color: "#007acc" },
       ],
     },
   ];
@@ -231,6 +261,8 @@ export default function SkillsPage() {
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               これまでに習得した技術スタックとプログラミング言語の使用実績
+              <br />
+              3D Spline、MAGIC MCP、CLI開発ツールなど幅広い分野に対応
             </p>
             <div className="mt-4 text-cyan-300 text-lg font-semibold">
               {totalSkills}+ Technologies
@@ -391,6 +423,21 @@ export default function SkillsPage() {
                         ></div>
                       </div>
                     </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-white text-sm font-medium">
+                          Go
+                        </span>
+                        <span className="text-cyan-400 text-sm">新規追加</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-cyan-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: "5%" }}
+                        ></div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Compact Language Icons */}
@@ -512,9 +559,9 @@ export default function SkillsPage() {
                 <div className="h-12 w-px bg-white/20"></div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-400 mb-1">
-                    12+
+                    60+
                   </div>
-                  <div className="text-gray-300 text-sm">Projects</div>
+                  <div className="text-gray-300 text-sm">Repositories</div>
                 </div>
                 <div className="h-12 w-px bg-white/20"></div>
                 <div className="text-center">
