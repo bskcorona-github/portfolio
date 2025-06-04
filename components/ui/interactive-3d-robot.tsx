@@ -48,10 +48,10 @@ const ErrorFallback: React.FC<{ error?: Error | null }> = ({ error }) => (
   </div>
 );
 
-// Spline コンポーネントの動的インポート（SSR無効）
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
+// Next.js 15対応 - シンプルなdynamic import
+const SplineComponent = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
-  loading: () => <LoadingSpinner message="Splineを読み込み中..." />,
+  loading: () => <LoadingSpinner message="Splineライブラリを読み込み中..." />,
 });
 
 // 3Dロボットのプレースホルダーコンポーネント
@@ -121,13 +121,13 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
   }, []);
 
   const handleError = React.useCallback((splineError: any) => {
-    console.error("Spline loading error:", splineError);
+    console.error("Spline scene error:", splineError);
     setIsLoading(false);
     setHasError(true);
     const errorObj =
       splineError instanceof Error
         ? splineError
-        : new Error("Unknown Spline error");
+        : new Error("Spline scene loading failed");
     setError(errorObj);
   }, []);
 
@@ -188,12 +188,18 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
           animate={{ opacity: isLoading ? 0 : 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Spline
-            scene={scene}
-            onLoad={handleLoad}
-            onError={handleError}
-            className="w-full h-full"
-          />
+          <Suspense
+            fallback={
+              <LoadingSpinner message="Splineコンポーネントを準備中..." />
+            }
+          >
+            <SplineComponent
+              scene={scene}
+              onLoad={handleLoad}
+              onError={handleError}
+              className="w-full h-full"
+            />
+          </Suspense>
         </motion.div>
       )}
     </div>

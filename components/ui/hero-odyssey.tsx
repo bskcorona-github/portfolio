@@ -406,6 +406,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 
 export const HeroSection: React.FC = () => {
   const [lightningHue, setLightningHue] = useState(220);
+  const [splineEnabled, setSplineEnabled] = useState(true);
   const shouldReduceMotion = useReducedMotion();
 
   const containerVariants = {
@@ -488,6 +489,27 @@ export const HeroSection: React.FC = () => {
             label="Lightning Hue"
           />
 
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center space-x-4 mb-4"
+          >
+            <button
+              onClick={() => setSplineEnabled(!splineEnabled)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                splineEnabled
+                  ? "bg-green-500/20 text-green-300 hover:bg-green-500/30"
+                  : "bg-red-500/20 text-red-300 hover:bg-red-500/30"
+              } border border-current focus:outline-none focus:ring-2 focus:ring-current focus:ring-opacity-50`}
+            >
+              3D Robot: {splineEnabled ? "ON" : "OFF"}
+            </button>
+            {splineEnabled && (
+              <span className="text-yellow-400 text-xs">
+                ⚠️ テスト中 - エラーが発生する可能性があります
+              </span>
+            )}
+          </motion.div>
+
           <motion.button
             variants={itemVariants}
             whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
@@ -559,7 +581,7 @@ export const HeroSection: React.FC = () => {
         <InteractiveRobotSpline
           scene={ROBOT_SCENE_URL}
           className="absolute inset-0 w-full h-full"
-          disableSpline={true}
+          disableSpline={!splineEnabled}
         />
       </motion.div>
 
