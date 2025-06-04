@@ -24,6 +24,7 @@ export default function ProjectsPage() {
         <InteractiveRobotSpline
           scene={ROBOT_SCENE_URL}
           className="absolute inset-0 w-full h-full"
+          disableSpline={true}
         />
       </motion.div>
 

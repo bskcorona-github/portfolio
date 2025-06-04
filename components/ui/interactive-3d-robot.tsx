@@ -1,12 +1,13 @@
 "use client";
 
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
 interface InteractiveRobotSplineProps {
   scene: string;
   className?: string;
+  disableSpline?: boolean;
 }
 
 interface LoadingSpinnerProps {
@@ -47,7 +48,7 @@ const ErrorFallback: React.FC<{ error?: Error | null }> = ({ error }) => (
   </div>
 );
 
-// Spline 2.2.6バージョン用の動的インポート
+// Spline コンポーネントの動的インポート（SSR無効）
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
   loading: () => <LoadingSpinner message="Splineを読み込み中..." />,
@@ -102,13 +103,14 @@ const RobotPlaceholder: React.FC = () => (
 export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
   scene,
   className = "",
+  disableSpline = false,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsMounted(true);
   }, []);
 
@@ -136,6 +138,15 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-10">
           <LoadingSpinner message="クライアント環境を初期化中..." />
         </div>
+      </div>
+    );
+  }
+
+  // Splineが無効化されている場合、プレースホルダーのみ表示
+  if (disableSpline) {
+    return (
+      <div className={`relative ${className}`}>
+        <RobotPlaceholder />
       </div>
     );
   }
@@ -171,25 +182,19 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
 
       {/* Spline 3D Scene */}
       {!hasError && (
-        <Suspense
-          fallback={
-            <LoadingSpinner message="Splineコンポーネントを初期化中..." />
-          }
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoading ? 0 : 1 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div
+          <Spline
+            scene={scene}
+            onLoad={handleLoad}
+            onError={handleError}
             className="w-full h-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isLoading ? 0 : 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Spline
-              scene={scene}
-              onLoad={handleLoad}
-              onError={handleError}
-              className="w-full h-full"
-            />
-          </motion.div>
-        </Suspense>
+          />
+        </motion.div>
       )}
     </div>
   );
