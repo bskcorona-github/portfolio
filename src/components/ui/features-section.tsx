@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
-  Bot,
-  Sparkles,
-  Layers3,
-  Zap,
-  Brain,
-  Palette,
-  Globe,
   Code2,
+  Brain,
+  FileText,
+  Github,
+  Sparkles,
+  MessageSquare,
+  Coffee,
+  Zap,
 } from "lucide-react";
 
 interface FeatureCardProps {
@@ -92,72 +92,72 @@ export const FeaturesSection: React.FC = () => {
 
   const features = [
     {
-      icon: Bot,
-      title: "3Dインタラクティブロボット",
+      icon: Brain,
+      title: "AI駆動開発",
       description:
-        "Spline製の高品質3Dロボットが、ユーザーの操作に反応してリアルタイムでアニメーション。没入感のある体験を提供します。",
-    },
-    {
-      icon: Zap,
-      title: "WebGLライトニングエフェクト",
-      description:
-        "カスタムシェーダーで実装されたリアルタイムライトニング効果。色相をリアルタイムで調整可能な動的エフェクト。",
+        "最新のAI技術を積極的に学習し、現在の会社での登壇経験も積み重ね、AI時代のエンジニアとして成長し続けています。",
     },
     {
       icon: Code2,
-      title: "マトリックスコード背景",
+      title: "毎日のコーディング",
       description:
-        "映画マトリックスにインスパイアされたコードレインアニメーション。日本語文字とバイナリの組み合わせで独特の雰囲気を演出。",
+        "365日継続的な開発を通じて、常に技術力を向上。新しい技術や手法への探求心を持ち続けています。",
     },
     {
-      icon: Layers3,
-      title: "3層アーキテクチャ",
+      icon: FileText,
+      title: "知識の共有",
       description:
-        "背景・中間・前景の3層構造により、奥行き感のある美しいレイヤリングを実現。各層が独立してアニメーション。",
+        "気付きや学びがあればQiitaやNotionで記事・手順書を作成。コミュニティへの貢献と自己の振り返りを大切にしています。",
+    },
+    {
+      icon: Github,
+      title: "オープンソース活動",
+      description:
+        "GitHub上で60のリポジトリを公開。Go、TypeScript、JavaScript等を使った多様なプロジェクトを展開中。",
     },
     {
       icon: Sparkles,
-      title: "グラスモルフィズムUI",
+      title: "フルスタック開発",
       description:
-        "モダンなガラス風半透明デザイン。バックドロップフィルターとグラデーションによる洗練されたインターフェース。",
+        "TypeScript 55%、フロントエンドからバックエンド、インフラまで幅広くカバーする技術スタックで包括的な開発を実現。",
     },
     {
-      icon: Brain,
-      title: "AI統合プラットフォーム",
+      icon: MessageSquare,
+      title: "技術共有",
       description:
-        "MCP（Model Context Protocol）により、AIエージェントとの高度な連携を実現。次世代のインテリジェントインタラクション。",
+        "Qiitaで50記事投稿、120コントリビューション。TypeScript、React、Next.js、AWSなど幅広い技術記事を執筆。",
     },
     {
-      icon: Palette,
-      title: "リアルタイムカスタマイズ",
+      icon: Coffee,
+      title: "沖縄ベース",
       description:
-        "ライトニングエフェクトの色調整、アニメーション速度の変更など、ユーザーが体験を自由にカスタマイズ可能。",
+        "美しい沖縄を拠点として、リラックスした環境で創造性豊かな開発に取り組んでいます。",
     },
     {
-      icon: Globe,
-      title: "レスポンシブデザイン",
+      icon: Zap,
+      title: "継続的学習",
       description:
-        "あらゆるデバイスサイズに最適化。モバイルからデスクトップまで、一貫した美しい体験を提供します。",
+        "エンジニア2年目として謙虚に学び続け、新しい技術やベストプラクティスを日々吸収し実践に活かしています。",
     },
   ];
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-transparent">
+    <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-6">
-            先進的な機能
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+            開発スタイル
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            最新のWeb技術を駆使した革新的な機能群で、
+            AI時代のエンジニアとして、継続的な学習と実践、
             <br />
-            未来のインタラクションを今すぐ体験できます
+            知識の共有を通じて成長し続けています
           </p>
         </motion.div>
 

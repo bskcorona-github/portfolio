@@ -5,6 +5,7 @@ import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { HeroSection } from "@/components/ui/hero-odyssey";
 import { FeaturesSection } from "@/components/ui/features-section";
 import { AboutSection } from "@/components/ui/about-section";
+import { PersonalitySection } from "@/components/ui/personality-section";
 import { CTASection } from "@/components/ui/cta-section";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
@@ -46,16 +47,27 @@ export default function HomePage() {
 
         {/* 追加コンテンツセクション - スクロール時に表示 */}
         <div className="relative bg-gradient-to-b from-black/0 via-black/80 to-black/95">
+          {/* スムーズな繋ぎ部分 - 間隔調整 */}
+          <div className="pt-8 pb-4">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          </div>
+
           <FeaturesSection />
           <AboutSection />
+          <PersonalitySection />
           <CTASection />
 
-          {/* フッター */}
-          <footer className="relative py-12 px-4 sm:px-6 lg:px-8 text-center border-t border-white/10">
+          {/* フッター - 上部パディング削減 */}
+          <footer className="relative py-8 px-4 sm:px-6 lg:px-8 text-center border-t border-white/10 mt-8">
             <div className="max-w-4xl mx-auto">
               <div className="text-gray-400 text-sm">
-                <p className="mb-2">© 2024 Portfolio. All rights reserved.</p>
-                <p>Built with Next.js, WebGL, Spline 3D, and lots of ❤️</p>
+                <p className="mb-1">
+                  © 2024 Bsk_Corona Portfolio. All rights reserved.
+                </p>
+                <p className="text-xs opacity-70">
+                  Built with Next.js, TypeScript, Tailwind CSS, Spline 3D, and
+                  lots of ❤️
+                </p>
               </div>
             </div>
           </footer>

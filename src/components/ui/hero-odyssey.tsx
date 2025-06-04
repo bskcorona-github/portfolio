@@ -368,7 +368,7 @@ export const HeroSection: React.FC = () => {
   return (
     <div className="relative w-full bg-transparent text-white overflow-hidden">
       {/* Main container with space for content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen pt-24">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen pt-24 pb-16">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -377,29 +377,29 @@ export const HeroSection: React.FC = () => {
         >
           <motion.div variants={itemVariants}>
             <FeatureItem
-              name="React"
-              value="フレームワーク"
+              name="TypeScript"
+              value="55% 使用"
               position="left-0 sm:left-10 top-40"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
-              name="Tailwind"
-              value="スタイリング"
+              name="React/Next.js"
+              value="フロントエンド"
               position="left-1/4 top-24"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
-              name="Framer Motion"
-              value="アニメーション"
+              name="AWS/Docker"
+              value="インフラ"
               position="right-1/4 top-24"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
-              name="WebGL"
-              value="3Dエフェクト"
+              name="Python/PHP"
+              value="バックエンド"
               position="right-0 sm:right-10 top-40"
             />
           </motion.div>
@@ -417,14 +417,14 @@ export const HeroSection: React.FC = () => {
             onChange={setLightningHue}
             label="ライトニングの色調整"
           />
-          {/* Button: "Join us for free world" */}
+          {/* Button: "Portfolio Ready" */}
           <motion.button
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6 transition-all duration-300 group"
           >
-            <span>今すぐ体験を開始</span>
+            <span>🚀 Portfolio Open</span>
             <svg
               width="16"
               height="16"
@@ -445,31 +445,64 @@ export const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="text-5xl md:text-7xl font-light mb-2"
           >
-            Magic MCP
+            Bsk_Corona
           </motion.h1>
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 bg-clip-text text-transparent"
+            className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
           >
-            未来へのインタラクション
+            Full Stack Developer
           </motion.h2>
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 mb-9 max-w-2xl"
+            className="text-gray-400 mb-8 max-w-2xl"
           >
-            3Dロボット、WebGLライトニング、マトリックスコードが融合した
+            TypeScript・React・AWS を駆使して
             <br />
-            インタラクティブな次世代Webエクスペリエンス
+            革新的なWebアプリケーションを創造するエンジニア
           </motion.p>
-          <motion.button
+
+          {/* Stats */}
+          <motion.div
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-[100px] sm:mt-[100px] px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
+            className="flex items-center space-x-8 mb-8 text-sm"
           >
-            体験を始める
-          </motion.button>
+            <div className="text-center">
+              <div className="text-cyan-400 font-bold text-xl">70+</div>
+              <div className="text-gray-400">Technologies</div>
+            </div>
+            <div className="text-center">
+              <div className="text-green-400 font-bold text-xl">12+</div>
+              <div className="text-gray-400">Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-purple-400 font-bold text-xl">2+</div>
+              <div className="text-gray-400">Years Experience</div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 mt-[40px] sm:mt-[40px]"
+          >
+            <motion.a
+              href="/projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 hover:shadow-xl"
+            >
+              プロジェクトを見る
+            </motion.a>
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors border border-white/20"
+            >
+              お問い合わせ
+            </motion.a>
+          </motion.div>
         </motion.div>
       </div>
 

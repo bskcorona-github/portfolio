@@ -3,7 +3,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, Mail, ExternalLink, Rocket } from "lucide-react";
+import {
+  Github,
+  Mail,
+  ExternalLink,
+  FileText,
+  MessageCircle,
+  ArrowUp,
+} from "lucide-react";
 
 interface CTAButtonProps {
   href?: string;
@@ -107,22 +114,22 @@ export const CTASection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-transparent">
+    <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-6">
-            今すぐ始めよう
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+            Contact & Links
           </h2>
-          <p className="text-gray-400 text-xl max-w-2xl mx-auto">
-            Magic MCPの革新的な体験を今すぐお試しください。
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            一緒にプロジェクトに取り組みませんか？
             <br />
-            あなたのプロジェクトに新しい可能性を。
+            お気軽にお声がけください。
           </p>
         </motion.div>
 
@@ -131,28 +138,28 @@ export const CTASection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
         >
           <CTAButton
-            href="https://github.com/bskcorona-github/magic-website"
+            href="https://github.com/bskcorona-github"
             variant="primary"
             icon={<Github className="size-5" />}
             delay={0}
           >
-            GitHubで見る
+            GitHub Profile
           </CTAButton>
 
           <CTAButton
-            onClick={scrollToTop}
+            href="https://qiita.com/Tatsu_myon"
             variant="secondary"
-            icon={<Rocket className="size-5" />}
+            icon={<FileText className="size-5" />}
             delay={0.1}
           >
-            体験を再開
+            Qiita記事
           </CTAButton>
 
           <CTAButton
-            href="mailto:contact@magic-mcp.com"
+            href="/contact"
             variant="outline"
             icon={<Mail className="size-5" />}
             delay={0.2}
@@ -161,12 +168,12 @@ export const CTASection: React.FC = () => {
           </CTAButton>
 
           <CTAButton
-            href="https://magic-website-p96o340vl-bsk-coronas-projects.vercel.app"
+            onClick={scrollToTop}
             variant="outline"
-            icon={<ExternalLink className="size-5" />}
+            icon={<ArrowUp className="size-5" />}
             delay={0.3}
           >
-            ライブデモ
+            トップに戻る
           </CTAButton>
         </motion.div>
 
@@ -179,15 +186,15 @@ export const CTASection: React.FC = () => {
         >
           <Card className="relative backdrop-blur-xl bg-white/5 border-white/10 max-w-2xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-lg"></div>
-            <CardContent className="p-8">
-              <div className="text-lg text-gray-300 mb-4">
-                Magic MCPプロジェクトは、
+            <CardContent className="p-6 md:p-8">
+              <div className="text-lg text-gray-300 mb-3">
+                Bsk_Corona Portfolio は、
               </div>
-              <div className="text-2xl font-light text-white mb-4">
-                テクノロジーとクリエイティビティの融合
+              <div className="text-xl md:text-2xl font-light text-white mb-3">
+                継続的な学習と成長を続ける
               </div>
-              <div className="text-gray-400">
-                を通じて、Webの新しい可能性を探求し続けています。
+              <div className="text-gray-400 text-sm">
+                フルスタックエンジニアの足跡を記録しています。
               </div>
             </CardContent>
           </Card>
