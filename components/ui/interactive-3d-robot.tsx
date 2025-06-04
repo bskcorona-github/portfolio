@@ -8,84 +8,110 @@ interface InteractiveRobotSplineProps {
   className?: string;
 }
 
-// 完全にSSRを無効化したSplineコンポーネント
-const SplineComponent = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center bg-black/20 backdrop-blur-sm text-white">
-      <div className="flex flex-col items-center justify-center">
-        <svg
-          className="animate-spin h-8 w-8 text-white mr-3 mb-4"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-          ></circle>
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l2-2.647z"
-          ></path>
-        </svg>
-        <p className="text-white/70 text-sm">3Dロボットを読み込み中...</p>
+// より堅牢なフォールバックコンポーネント
+const FallbackComponent = ({ className }: { className?: string }) => (
+  <div
+    className={`w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm text-white ${className}`}
+  >
+    <div className="flex flex-col items-center justify-center space-y-4">
+      <div className="w-24 h-24 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+      <div className="text-center space-y-2">
+        <h3 className="text-lg font-semibold text-white/90">
+          3D Experience Loading
+        </h3>
+        <p className="text-sm text-white/60">
+          革新的な3Dロボット体験を準備中...
+        </p>
+      </div>
+      <div className="flex space-x-1">
+        <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+        <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-100"></div>
+        <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse delay-200"></div>
       </div>
     </div>
-  ),
-});
+  </div>
+);
+
+// 安全なSplineコンポーネント
+const SafeSplineComponent = dynamic(
+  async () => {
+    try {
+      const module = await import("@splinetool/react-spline");
+      return module.default;
+    } catch (error) {
+      console.warn("Spline module failed to load:", error);
+      // フォールバックコンポーネントを返す
+      return () => <FallbackComponent />;
+    }
+  },
+  {
+    ssr: false,
+    loading: () => <FallbackComponent />,
+  }
+);
 
 export function InteractiveRobotSpline({
   scene,
   className,
 }: InteractiveRobotSplineProps) {
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+
+    // グローバルエラーハンドラー
+    const handleError = (event: ErrorEvent) => {
+      if (
+        event.message?.includes("Super constructor null") ||
+        event.message?.includes("spline") ||
+        event.filename?.includes("spline")
+      ) {
+        console.warn(
+          "Spline error detected, switching to fallback:",
+          event.message
+        );
+        setHasError(true);
+        event.preventDefault();
+      }
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      if (
+        event.reason?.message?.includes("spline") ||
+        event.reason?.stack?.includes("spline")
+      ) {
+        console.warn("Spline promise rejection detected:", event.reason);
+        setHasError(true);
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("error", handleError);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener("error", handleError);
+      window.removeEventListener(
+        "unhandledrejection",
+        handleUnhandledRejection
+      );
+    };
   }, []);
 
-  // クライアントサイドでのみレンダリング
+  // サーバーサイドまたは初期化前の状態
   if (!isMounted) {
-    return (
-      <div
-        className={`w-full h-full flex items-center justify-center bg-black/20 backdrop-blur-sm text-white ${className}`}
-      >
-        <div className="flex flex-col items-center justify-center">
-          <svg
-            className="animate-spin h-8 w-8 text-white mr-3 mb-4"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l2-2.647z"
-            ></path>
-          </svg>
-          <p className="text-white/70 text-sm">初期化中...</p>
-        </div>
-      </div>
-    );
+    return <FallbackComponent className={className} />;
+  }
+
+  // エラーが発生した場合のフォールバック
+  if (hasError) {
+    return <FallbackComponent className={className} />;
   }
 
   return (
     <div className={className}>
-      <SplineComponent scene={scene} />
+      <SafeSplineComponent scene={scene} onError={() => setHasError(true)} />
     </div>
   );
 }
