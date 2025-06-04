@@ -185,7 +185,7 @@ export const AboutSection: React.FC = () => {
                 AI時代のエンジニアとして成長し続けています&rdquo;
               </blockquote>
               <div className="text-gray-400">
-                <div className="font-semibold">Bsk_Corona (たつみょん)</div>
+                <div className="font-semibold">Kinjo_Tatsuro (たつみょん)</div>
                 <div className="text-sm">Full Stack Developer from Okinawa</div>
               </div>
             </CardContent>

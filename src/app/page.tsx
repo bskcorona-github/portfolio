@@ -62,7 +62,7 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-gray-400 text-sm">
                 <p className="mb-1">
-                  © 2024 Bsk_Corona Portfolio. All rights reserved.
+                  © 2024 Kinjo_Tatsuro Portfolio. All rights reserved.
                 </p>
                 <p className="text-xs opacity-70">
                   Built with Next.js, TypeScript, Tailwind CSS, Spline 3D, and

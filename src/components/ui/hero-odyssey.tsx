@@ -448,7 +448,7 @@ export const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="text-3xl sm:text-5xl md:text-7xl font-light mb-1 sm:mb-2"
           >
-            Bsk_Corona
+            Kinjo_Tatsuro
           </motion.h1>
           <motion.h2
             variants={itemVariants}

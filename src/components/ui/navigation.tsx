@@ -42,7 +42,7 @@ export const Navigation: React.FC = () => {
                   strokeWidth="2"
                 />
               </svg>
-              <span className="ml-2 text-white font-bold">Bsk_Corona</span>
+              <span className="ml-2 text-white font-bold">Kinjo_Tatsuro</span>
             </Link>
 
             {/* デスクトップナビゲーション */}

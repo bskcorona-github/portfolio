@@ -181,7 +181,7 @@ export const CTASection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-lg"></div>
             <CardContent className="p-6 md:p-8">
               <div className="text-lg text-gray-300 mb-3">
-                Bsk_Corona Portfolio は、
+                Kinjo_Tatsuro Portfolio は、
               </div>
               <div className="text-xl md:text-2xl font-light text-white mb-3">
                 継続的な学習と成長を続ける

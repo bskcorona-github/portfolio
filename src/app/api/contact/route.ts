@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     const autoReplyOptions = {
       from: process.env.MAIL_FROM,
       to: email,
-      subject: "【自動返信】お問い合わせありがとうございます - Bsk_Corona",
+      subject: "【自動返信】お問い合わせありがとうございます - Kinjo_Tatsuro",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">
