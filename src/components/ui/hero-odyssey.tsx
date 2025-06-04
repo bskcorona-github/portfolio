@@ -325,10 +325,10 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
           <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         <div className=" text-white relative">
-          <div className="font-medium group-hover:text-white transition-colors duration-300">
+          <div className="font-medium group-hover:text-white transition-colors duration-300 text-xs sm:text-sm">
             {name}
           </div>
-          <div className="text-white/70 text-sm group-hover:text-white/70 transition-colors duration-300">
+          <div className="text-white/70 text-xs group-hover:text-white/70 transition-colors duration-300">
             {value}
           </div>
           {/* Constant white glow that intensifies on hover */}
@@ -373,34 +373,34 @@ export const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full z-200 top-[30%] relative"
+          className="w-full z-200 top-[10%] sm:top-[25%] relative"
         >
           <motion.div variants={itemVariants}>
             <FeatureItem
               name="TypeScript"
               value="55% 使用"
-              position="left-0 sm:left-10 top-40"
+              position="left-2 sm:left-10 top-8 sm:top-32"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
               name="React/Next.js"
               value="フロントエンド"
-              position="left-1/4 top-24"
+              position="left-1/4 top-0 sm:top-16"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
               name="AWS/Docker"
               value="インフラ"
-              position="right-1/4 top-24"
+              position="right-1/4 top-0 sm:top-16"
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <FeatureItem
               name="Python/PHP"
               value="バックエンド"
-              position="right-0 sm:right-10 top-40"
+              position="right-2 sm:right-10 top-8 sm:top-32"
             />
           </motion.div>
         </motion.div>
@@ -410,19 +410,22 @@ export const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto "
+          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto mt-16 sm:mt-8 pt-8 sm:pt-0"
         >
-          <ElasticHueSlider
-            value={lightningHue}
-            onChange={setLightningHue}
-            label="ライトニングの色調整"
-          />
+          {/* PC版のみスライダー表示 */}
+          <div className="hidden sm:block">
+            <ElasticHueSlider
+              value={lightningHue}
+              onChange={setLightningHue}
+              label="ライトニングの色調整"
+            />
+          </div>
           {/* Button: "Portfolio Ready" */}
           <motion.button
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6 transition-all duration-300 group"
+            className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-4 sm:mb-6 transition-all duration-300 group"
           >
             <span>🚀 Portfolio Open</span>
             <svg
@@ -443,20 +446,20 @@ export const HeroSection: React.FC = () => {
           </motion.button>
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-light mb-2"
+            className="text-3xl sm:text-5xl md:text-7xl font-light mb-1 sm:mb-2"
           >
             Bsk_Corona
           </motion.h1>
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+            className="text-xl sm:text-3xl md:text-5xl pb-1 sm:pb-3 font-light bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
           >
             Full Stack Developer
           </motion.h2>
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 mb-8 max-w-2xl"
+            className="text-gray-400 mb-4 sm:mb-8 max-w-2xl text-xs sm:text-base px-4"
           >
             TypeScript・React・AWS を駆使して
             <br />
@@ -466,31 +469,41 @@ export const HeroSection: React.FC = () => {
           {/* Stats */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center space-x-8 mb-8 text-sm"
+            className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 mb-4 sm:mb-8 text-sm"
           >
             <div className="text-center">
-              <div className="text-cyan-400 font-bold text-xl">70+</div>
-              <div className="text-gray-400">Technologies</div>
+              <div className="text-cyan-400 font-bold text-lg sm:text-xl">
+                70+
+              </div>
+              <div className="text-gray-400 text-xs sm:text-sm">
+                Technologies
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-green-400 font-bold text-xl">12+</div>
-              <div className="text-gray-400">Projects</div>
+              <div className="text-green-400 font-bold text-lg sm:text-xl">
+                12+
+              </div>
+              <div className="text-gray-400 text-xs sm:text-sm">Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-purple-400 font-bold text-xl">2+</div>
-              <div className="text-gray-400">Years Experience</div>
+              <div className="text-purple-400 font-bold text-lg sm:text-xl">
+                2+
+              </div>
+              <div className="text-gray-400 text-xs sm:text-sm">
+                Years Experience
+              </div>
             </div>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 mt-[40px] sm:mt-[40px]"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2 sm:mt-[40px]"
           >
             <motion.a
               href="/projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 hover:shadow-xl"
+              className="px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 hover:shadow-xl text-sm sm:text-base"
             >
               プロジェクトを見る
             </motion.a>
@@ -498,7 +511,7 @@ export const HeroSection: React.FC = () => {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors border border-white/20"
+              className="px-6 sm:px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors border border-white/20 text-sm sm:text-base"
             >
               お問い合わせ
             </motion.a>

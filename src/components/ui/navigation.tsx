@@ -66,12 +66,12 @@ export const Navigation: React.FC = () => {
           {/* モバイルメニューボタン */}
           <div className="flex items-center">
             <button
-              className="md:hidden p-2 rounded-md focus:outline-none"
+              className="md:hidden p-2 rounded-md focus:outline-none text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -85,7 +85,7 @@ export const Navigation: React.FC = () => {
                 </svg>
               ) : (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -113,11 +113,11 @@ export const Navigation: React.FC = () => {
         >
           <div className="flex flex-col items-center justify-center h-full space-y-6 text-lg">
             <button
-              className="absolute top-6 right-6 p-2"
+              className="absolute top-6 right-6 p-2 text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               <svg
-                className="h-6 w-6"
+                className="h-6 w-6 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
