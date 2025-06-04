@@ -46,6 +46,8 @@ import {
   SiWebgl,
   SiThreedotjs,
   SiBlender,
+  SiRedis,
+  SiQiita,
 } from "react-icons/si";
 import { FaDatabase, FaServer, FaRobot, FaCube, FaMagic } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
@@ -123,7 +125,7 @@ export default function SkillsPage() {
         { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
         { name: "SQL Server", icon: DiMsqlServer, color: "#cc2927" },
         { name: "Prisma", icon: SiPrisma, color: "#2d3748" },
-        { name: "Redis", icon: FaDatabase, color: "#dc382d" },
+        { name: "Redis", icon: SiRedis, color: "#dc382d" },
         { name: "DBeaver", icon: FaDatabase, color: "#372e2e" },
         { name: "HeidiSQL", icon: FaDatabase, color: "#4b8bbe" },
       ],
@@ -186,7 +188,7 @@ export default function SkillsPage() {
         { name: "Chatwork", icon: MdChat, color: "#f37529" },
         { name: "Microsoft Teams", icon: MdGroup, color: "#6264a7" },
         { name: "Notion", icon: SiNotion, color: "#000000" },
-        { name: "Qiita", icon: FaDatabase, color: "#55c500" },
+        { name: "Qiita", icon: SiQiita, color: "#55c500" },
       ],
     },
   ];
