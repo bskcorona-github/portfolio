@@ -14,17 +14,19 @@ export async function POST(request: NextRequest) {
     }
 
     // Nodemailerのトランスポーター設定
-    const transporter = nodemailer.createTransporter({
-      service: "gmail",
+    const transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: parseInt(process.env.MAIL_PORT || "587"),
+      secure: false, // 587ポートの場合はfalse
       auth: {
-        user: process.env.EMAIL_USER, // 送信用Gmailアドレス
-        pass: process.env.EMAIL_PASS, // Gmailアプリパスワード
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
       },
     });
 
     // 受信者への通知メール
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.MAIL_FROM,
       to: "kanemasa.tatsuro@gmail.com",
       subject: `【ポートフォリオお問い合わせ】${subject || "お問い合わせ"}`,
       html: `
@@ -58,9 +60,9 @@ export async function POST(request: NextRequest) {
 
     // 送信者への自動返信メール
     const autoReplyOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.MAIL_FROM,
       to: email,
-      subject: "【自動返信】お問い合わせありがとうございます - 兼正達朗",
+      subject: "【自動返信】お問い合わせありがとうございます - Bsk_Corona",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">

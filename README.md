@@ -76,8 +76,11 @@ npm install
 
 ```bash
 # .env.local
-EMAIL_USER=your-gmail@gmail.com
-EMAIL_PASS=your-app-password
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USER=your-gmail@gmail.com
+MAIL_PASS=your-app-password
+MAIL_FROM=your-gmail@gmail.com
 ```
 
 #### Gmail 設定手順
@@ -92,8 +95,11 @@ EMAIL_PASS=your-app-password
    - 「メール」を選択してパスワードを生成
 
 3. **環境変数を設定**
-   - `EMAIL_USER`: 送信用 Gmail アドレス
-   - `EMAIL_PASS`: 生成したアプリパスワード（通常のパスワードではありません）
+   - `MAIL_HOST`: SMTP サーバー（Gmail の場合: smtp.gmail.com）
+   - `MAIL_PORT`: SMTP ポート（Gmail の場合: 587）
+   - `MAIL_USER`: 送信用 Gmail アドレス
+   - `MAIL_PASS`: 生成したアプリパスワード（通常のパスワードではありません）
+   - `MAIL_FROM`: 送信者として表示されるメールアドレス
 
 ### 開発サーバー起動
 
