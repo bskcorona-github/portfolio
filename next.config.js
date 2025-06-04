@@ -19,6 +19,10 @@ const nextConfig = {
     }
     return config;
   },
+  // Next.js 15の新機能を活用
+  experimental: {
+    optimizePackageImports: ["@splinetool/react-spline"],
+  },
 };
 
 module.exports = nextConfig;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 
 interface InteractiveRobotSplineProps {
@@ -8,8 +8,8 @@ interface InteractiveRobotSplineProps {
   className?: string;
 }
 
-// より堅牢なフォールバックコンポーネント
-const FallbackComponent = ({ className }: { className?: string }) => (
+// シンプルなローディング表示
+const LoadingFallback = ({ className }: { className?: string }) => (
   <div
     className={`w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm text-white ${className}`}
   >
@@ -23,95 +23,25 @@ const FallbackComponent = ({ className }: { className?: string }) => (
           革新的な3Dロボット体験を準備中...
         </p>
       </div>
-      <div className="flex space-x-1">
-        <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-        <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-100"></div>
-        <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse delay-200"></div>
-      </div>
     </div>
   </div>
 );
 
-// 安全なSplineコンポーネント
-const SafeSplineComponent = dynamic(
-  async () => {
-    try {
-      const module = await import("@splinetool/react-spline");
-      return module.default;
-    } catch (error) {
-      console.warn("Spline module failed to load:", error);
-      // フォールバックコンポーネントを返す
-      return () => <FallbackComponent />;
-    }
-  },
-  {
-    ssr: false,
-    loading: () => <FallbackComponent />,
-  }
-);
+// Magic Website風のシンプルなSpline統合
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => <LoadingFallback />,
+});
 
 export function InteractiveRobotSpline({
   scene,
   className,
 }: InteractiveRobotSplineProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-
-    // グローバルエラーハンドラー
-    const handleError = (event: ErrorEvent) => {
-      if (
-        event.message?.includes("Super constructor null") ||
-        event.message?.includes("spline") ||
-        event.filename?.includes("spline")
-      ) {
-        console.warn(
-          "Spline error detected, switching to fallback:",
-          event.message
-        );
-        setHasError(true);
-        event.preventDefault();
-      }
-    };
-
-    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      if (
-        event.reason?.message?.includes("spline") ||
-        event.reason?.stack?.includes("spline")
-      ) {
-        console.warn("Spline promise rejection detected:", event.reason);
-        setHasError(true);
-        event.preventDefault();
-      }
-    };
-
-    window.addEventListener("error", handleError);
-    window.addEventListener("unhandledrejection", handleUnhandledRejection);
-
-    return () => {
-      window.removeEventListener("error", handleError);
-      window.removeEventListener(
-        "unhandledrejection",
-        handleUnhandledRejection
-      );
-    };
-  }, []);
-
-  // サーバーサイドまたは初期化前の状態
-  if (!isMounted) {
-    return <FallbackComponent className={className} />;
-  }
-
-  // エラーが発生した場合のフォールバック
-  if (hasError) {
-    return <FallbackComponent className={className} />;
-  }
-
   return (
     <div className={className}>
-      <SafeSplineComponent scene={scene} onError={() => setHasError(true)} />
+      <Suspense fallback={<LoadingFallback />}>
+        <Spline scene={scene} />
+      </Suspense>
     </div>
   );
 }
