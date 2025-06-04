@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Frontend Developer | WebアプリケーションとUI/UX開発",
+  title: "Portfolio - Full Stack Developer | WebアプリケーションとUI/UX開発",
   description:
-    "フロントエンドエンジニアのポートフォリオサイト。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介。UI/UXデザインからバックエンドAPIまで幅広い技術で革新的なソリューションを提供します。",
+    "フルスタックエンジニアのポートフォリオサイト。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介。UI/UXデザインからバックエンドAPIまで幅広い技術で革新的なソリューションを提供します。",
   keywords: [
     "ポートフォリオ",
-    "フロントエンドエンジニア",
+    "フルスタックエンジニア",
     "React",
     "Next.js",
     "TypeScript",
