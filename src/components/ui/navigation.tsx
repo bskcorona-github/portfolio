@@ -13,12 +13,10 @@ export const Navigation: React.FC = () => {
 
   const navItems = [
     { href: "/", label: "ホーム" },
-    { href: "/features", label: "機能" },
-    { href: "/dashboard", label: "ダッシュボード" },
-    { href: "/use-cases", label: "ユースケース" },
+    { href: "/experience", label: "職務経歴" },
+    { href: "/projects", label: "プロジェクト" },
+    { href: "/skills", label: "スキル" },
     { href: "/contact", label: "お問い合わせ" },
-    { href: "/support", label: "サポート" },
-    { href: "/docs", label: "ドキュメント" },
   ];
 
   return (
@@ -44,6 +42,7 @@ export const Navigation: React.FC = () => {
                   strokeWidth="2"
                 />
               </svg>
+              <span className="ml-2 text-white font-bold">Portfolio</span>
             </Link>
 
             {/* デスクトップナビゲーション */}
