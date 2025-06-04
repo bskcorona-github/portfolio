@@ -13,45 +13,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Magic MCP - Model Context Protocol Platform | AI統合プラットフォーム",
+  title: "Portfolio - Frontend Developer | WebアプリケーションとUI/UX開発",
   description:
-    "Magic MCPは、AIシステムとデータソースを接続するModel Context Protocolの実装です。開発者向けの統合プラットフォームで、簡単にAIツールとデータを連携できます。",
+    "フロントエンドエンジニアのポートフォリオサイト。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介。UI/UXデザインからバックエンドAPIまで幅広い技術で革新的なソリューションを提供します。",
   keywords: [
-    "Model Context Protocol",
-    "MCP",
-    "AI integration",
-    "Anthropic",
-    "Claude",
-    "API",
-    "AI platform",
-    "Machine Learning",
-    "Developer tools",
-    "Data integration",
+    "ポートフォリオ",
+    "フロントエンドエンジニア",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Go",
+    "JavaScript",
+    "Web開発",
+    "UI/UX",
+    "レスポンシブデザイン",
+    "API開発",
   ],
-  authors: [{ name: "Magic MCP Team" }],
-  creator: "Magic MCP",
-  publisher: "Magic MCP",
+  authors: [{ name: "Frontend Developer" }],
+  creator: "Frontend Developer",
+  publisher: "Portfolio",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://magic-mcp.vercel.app"),
+  metadataBase: new URL("https://bskportfolio.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Magic MCP - Model Context Protocol Platform",
+    title: "Portfolio - Frontend Developer",
     description:
-      "AIシステムとデータソースを接続するModel Context Protocolの実装プラットフォーム",
-    url: "https://magic-mcp.vercel.app",
-    siteName: "Magic MCP",
+      "フロントエンドエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
+    url: "https://bskportfolio.vercel.app",
+    siteName: "Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Magic MCP - Model Context Protocol Platform",
+        alt: "Portfolio - Frontend Developer",
       },
     ],
     locale: "ja_JP",
@@ -59,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Magic MCP - Model Context Protocol Platform",
+    title: "Portfolio - Frontend Developer",
     description:
-      "AIシステムとデータソースを接続するModel Context Protocolの実装プラットフォーム",
+      "フロントエンドエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
     images: ["/og-image.png"],
   },
   robots: {
@@ -90,21 +91,27 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "Magic MCP",
-              description: "Model Context Protocolの実装プラットフォーム",
-              url: "https://magic-mcp.vercel.app",
-              applicationCategory: "DeveloperApplication",
-              operatingSystem: "Web",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-              creator: {
+              "@type": "Person",
+              name: "Frontend Developer",
+              description:
+                "フロントエンドエンジニア・Webアプリケーション開発者",
+              url: "https://bskportfolio.vercel.app",
+              jobTitle: "Frontend Developer",
+              worksFor: {
                 "@type": "Organization",
-                name: "Magic MCP Team",
+                name: "Various Companies",
               },
+              knowsAbout: [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "JavaScript",
+                "Go",
+                "Python",
+                "Web Development",
+                "UI/UX Design",
+              ],
+              sameAs: ["https://github.com/bskcorona-github"],
             }),
           }}
         />
