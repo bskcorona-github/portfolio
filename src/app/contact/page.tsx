@@ -22,7 +22,7 @@ const ContactHero = () => {
           お問い合わせ
         </h1>
         <p className="text-gray-400 text-xl max-w-3xl mx-auto mb-12">
-          Magic MCPについてご質問やご相談がございましたら、
+          プロジェクトのご相談やお仕事のご依頼など、
           <br />
           お気軽にお問い合わせください。
         </p>
@@ -35,13 +35,21 @@ const ContactHero = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
           {[
-            { icon: Mail, title: "メール", value: "contact@magic-mcp.com" },
+            {
+              icon: Mail,
+              title: "メール",
+              value: "kanemasa.tatsuro@gmail.com",
+            },
+            {
+              icon: MapPin,
+              title: "所在地",
+              value: "沖縄県那覇市",
+            },
             {
               icon: MessageSquare,
-              title: "チャット",
-              value: "リアルタイムサポート",
+              title: "営業時間",
+              value: "平日のみ（土日休業）",
             },
-            { icon: Phone, title: "電話", value: "24時間対応" },
           ].map((contact) => (
             <Card
               key={contact.title}
@@ -69,6 +77,10 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -76,11 +88,34 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理（実際の実装では適切なAPIを呼び出し）
-    console.log("Form submitted:", formData);
-    alert("お問い合わせありがとうございます。後日ご連絡いたします。");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("送信エラー:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -162,11 +197,41 @@ const ContactForm = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/40 rounded-lg font-medium transition-colors"
+                    disabled={isSubmitting}
+                    className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+                      isSubmitting
+                        ? "bg-gray-500/20 text-gray-400 border border-gray-500/40 cursor-not-allowed"
+                        : submitStatus === "success"
+                        ? "bg-green-500/20 text-green-400 border border-green-500/40"
+                        : submitStatus === "error"
+                        ? "bg-red-500/20 text-red-400 border border-red-500/40"
+                        : "bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 border border-blue-500/40"
+                    }`}
                   >
                     <Send className="size-4" />
-                    送信する
+                    {isSubmitting
+                      ? "送信中..."
+                      : submitStatus === "success"
+                      ? "送信完了！"
+                      : submitStatus === "error"
+                      ? "送信失敗 - 再試行"
+                      : "送信する"}
                   </button>
+
+                  {/* 送信結果メッセージ */}
+                  {submitStatus === "success" && (
+                    <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
+                      ✓
+                      お問い合わせありがとうございます。24時間以内にご返信いたします。
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                      ✗
+                      送信に失敗しました。しばらく経ってから再度お試しください。
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -189,20 +254,20 @@ const ContactForm = () => {
                   {
                     icon: Mail,
                     title: "メールアドレス",
-                    value: "contact@magic-mcp.com",
+                    value: "kanemasa.tatsuro@gmail.com",
                     description: "24時間以内にご返信いたします",
-                  },
-                  {
-                    icon: MessageSquare,
-                    title: "Discord",
-                    value: "Magic MCP Community",
-                    description: "開発者コミュニティ",
                   },
                   {
                     icon: MapPin,
                     title: "所在地",
-                    value: "東京, 日本",
-                    description: "リモートファースト開発",
+                    value: "沖縄県那覇市",
+                    description: "リモート開発対応可能",
+                  },
+                  {
+                    icon: MessageSquare,
+                    title: "Discord",
+                    value: "現在利用しておりません",
+                    description: "メールでのご連絡をお願いします",
                   },
                 ].map((item) => (
                   <Card
@@ -239,12 +304,12 @@ const ContactForm = () => {
                     <span className="text-white">9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">土曜日</span>
-                    <span className="text-white">10:00 - 16:00</span>
+                    <span className="text-gray-400">土曜日・日曜日</span>
+                    <span className="text-red-400">休業</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">日曜日</span>
-                    <span className="text-white">休業</span>
+                    <span className="text-gray-400">祝日</span>
+                    <span className="text-red-400">休業</span>
                   </div>
                 </div>
               </CardContent>

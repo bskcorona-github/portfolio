@@ -54,16 +54,6 @@ export default function SkillsPage() {
   const ROBOT_SCENE_URL =
     "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
 
-  // プログラミング言語使用統計
-  const languageStats = [
-    { name: "TypeScript", percentage: 55.24, color: "#3178c6" },
-    { name: "JavaScript", percentage: 23.79, color: "#f7df1e" },
-    { name: "Python", percentage: 8.23, color: "#3776ab" },
-    { name: "HTML", percentage: 5.01, color: "#e34f26" },
-    { name: "CSS", percentage: 3.98, color: "#1572b6" },
-    { name: "Vue", percentage: 3.76, color: "#4fc08d" },
-  ];
-
   // 技術スタック詳細
   const skillCategories = [
     {
@@ -247,7 +237,7 @@ export default function SkillsPage() {
             </div>
           </motion.div>
 
-          {/* プログラミング言語使用統計 */}
+          {/* GitHub Stats & Programming Languages */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -255,56 +245,174 @@ export default function SkillsPage() {
             className="mb-16"
           >
             <Card className="p-8 bg-black/40 backdrop-blur-lg border border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6 text-center">
-                📊 プログラミング言語使用統計
+              <h2 className="text-2xl font-bold text-white mb-8 text-center">
+                📊 GitHub Stats & Programming Languages
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {languageStats.map((lang, index) => (
-                  <motion.div
-                    key={lang.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                    className="text-center"
-                  >
-                    <div className="mb-3">
-                      <span className="text-white font-semibold text-lg">
-                        {lang.name}
-                      </span>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* GitHub Statistics */}
+                <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 p-6 rounded-lg border border-gray-700/50">
+                  <h3 className="text-xl font-bold text-cyan-400 mb-6 text-center">
+                    GitHub Statistics
+                  </h3>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="text-green-400 text-2xl mb-1">🕒</div>
+                      <div className="text-cyan-400 text-xs">Total Commits</div>
+                      <div className="text-white font-bold text-xl">310</div>
+                      <div className="text-gray-400 text-xs">(2025)</div>
                     </div>
-                    <div className="relative h-24 w-24 mx-auto mb-2">
+
+                    <div className="text-center">
+                      <div className="text-yellow-400 text-2xl mb-1">⭐</div>
+                      <div className="text-cyan-400 text-xs">Stars Earned</div>
+                      <div className="text-white font-bold text-xl">0</div>
+                    </div>
+
+                    <div className="text-center">
+                      <div className="text-purple-400 text-2xl mb-1">🔀</div>
+                      <div className="text-cyan-400 text-xs">Pull Requests</div>
+                      <div className="text-white font-bold text-xl">4</div>
+                    </div>
+
+                    <div className="text-center">
+                      <div className="text-red-400 text-2xl mb-1">❗</div>
+                      <div className="text-cyan-400 text-xs">Issues</div>
+                      <div className="text-white font-bold text-xl">3</div>
+                    </div>
+                  </div>
+
+                  {/* コミット活動の可視化 */}
+                  <div className="flex items-center justify-center">
+                    <div className="relative h-16 w-16">
                       <svg className="w-full h-full transform -rotate-90">
                         <circle
-                          cx="48"
-                          cy="48"
-                          r="40"
+                          cx="32"
+                          cy="32"
+                          r="28"
                           stroke="rgba(255,255,255,0.1)"
-                          strokeWidth="8"
+                          strokeWidth="4"
                           fill="none"
                         />
                         <circle
-                          cx="48"
-                          cy="48"
-                          r="40"
-                          stroke={lang.color}
-                          strokeWidth="8"
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="#00bcd4"
+                          strokeWidth="4"
                           fill="none"
                           strokeLinecap="round"
-                          strokeDasharray={`${2 * Math.PI * 40}`}
+                          strokeDasharray={`${2 * Math.PI * 28}`}
                           strokeDashoffset={`${
-                            2 * Math.PI * 40 * (1 - lang.percentage / 100)
+                            2 * Math.PI * 28 * (1 - 310 / 365)
                           }`}
                           className="transition-all duration-1000 ease-out"
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">
-                          {lang.percentage}%
+                        <span className="text-cyan-400 font-bold text-sm">
+                          85%
                         </span>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  </div>
+                  <div className="text-center mt-2">
+                    <span className="text-gray-400 text-xs">
+                      Annual Activity
+                    </span>
+                  </div>
+                </div>
+
+                {/* Programming Languages */}
+                <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 p-6 rounded-lg border border-gray-700/50">
+                  <h3 className="text-xl font-bold text-cyan-400 mb-6 text-center">
+                    Most Used Languages
+                  </h3>
+
+                  {/* Top 4 Languages with Progress Bars */}
+                  <div className="space-y-3">
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-white text-sm font-medium">
+                          TypeScript
+                        </span>
+                        <span className="text-blue-400 text-sm">55.24%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-blue-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: "55.24%" }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-white text-sm font-medium">
+                          JavaScript
+                        </span>
+                        <span className="text-yellow-400 text-sm">23.79%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-yellow-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: "23.79%" }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-white text-sm font-medium">
+                          Python
+                        </span>
+                        <span className="text-blue-300 text-sm">8.23%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-blue-400 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: "8.23%" }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-white text-sm font-medium">
+                          Others
+                        </span>
+                        <span className="text-gray-400 text-sm">12.74%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-gray-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: "12.74%" }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Compact Language Icons */}
+                  <div className="flex justify-center items-center mt-6 space-x-4">
+                    <div className="flex items-center space-x-1">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <span className="text-gray-300 text-xs">TS</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <span className="text-gray-300 text-xs">JS</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                      <span className="text-gray-300 text-xs">PY</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
+                      <span className="text-gray-300 text-xs">Others</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Card>
           </motion.div>
@@ -313,7 +421,7 @@ export default function SkillsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="mb-12"
           >
             <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -340,7 +448,7 @@ export default function SkillsPage() {
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + categoryIndex * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.4 + categoryIndex * 0.1 }}
                 className="group"
               >
                 <Card className="h-full p-6 bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300">
@@ -368,7 +476,7 @@ export default function SkillsPage() {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{
                             duration: 0.3,
-                            delay: 0.8 + categoryIndex * 0.1 + index * 0.05,
+                            delay: 0.5 + categoryIndex * 0.1 + index * 0.05,
                           }}
                           className="flex items-center px-3 py-1.5 bg-white/10 text-gray-300 text-sm rounded-full border border-white/20 hover:bg-cyan-500/20 hover:text-cyan-300 hover:border-cyan-400/50 transition-all duration-300 cursor-default"
                         >
@@ -390,7 +498,7 @@ export default function SkillsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center mt-16"
           >
             <Card className="inline-block p-8 bg-black/40 backdrop-blur-lg border border-white/10">
@@ -423,7 +531,7 @@ export default function SkillsPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="text-center mt-8"
           >
             <a

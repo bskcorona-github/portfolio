@@ -70,6 +70,31 @@ cd magic-website
 npm install
 ```
 
+### 環境変数の設定
+
+お問い合わせフォームのメール送信機能を有効にするため、`.env.local` ファイルを作成してください：
+
+```bash
+# .env.local
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASS=your-app-password
+```
+
+#### Gmail 設定手順
+
+1. **2 段階認証を有効化**
+
+   - Google アカウント設定 > セキュリティ > 2 段階認証
+
+2. **アプリパスワードを生成**
+
+   - Google アカウント設定 > セキュリティ > アプリパスワード
+   - 「メール」を選択してパスワードを生成
+
+3. **環境変数を設定**
+   - `EMAIL_USER`: 送信用 Gmail アドレス
+   - `EMAIL_PASS`: 生成したアプリパスワード（通常のパスワードではありません）
+
 ### 開発サーバー起動
 
 ```bash
