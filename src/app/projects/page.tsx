@@ -63,7 +63,7 @@ export default function ProjectsPage() {
         "https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       language: "JavaScript",
       category: "webapp",
-      url: "https://my-pokedex-Full Stack.vercel.app/",
+      url: "https://my-pokedex-frontend.vercel.app/",
       technologies: ["JavaScript", "HTML", "CSS", "API"],
       type: "Webアプリケーション",
     },
