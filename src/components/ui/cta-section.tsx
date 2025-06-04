@@ -3,14 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Github,
-  Mail,
-  ExternalLink,
-  FileText,
-  MessageCircle,
-  ArrowUp,
-} from "lucide-react";
+import { Github, Mail, FileText, ArrowUp } from "lucide-react";
 
 interface CTAButtonProps {
   href?: string;

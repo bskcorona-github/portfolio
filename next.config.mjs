@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ["images.unsplash.com"],
     remotePatterns: [
@@ -21,7 +18,6 @@ const nextConfig = {
     return [];
   },
   trailingSlash: false,
-  swcMinify: true,
 };
 
 export default nextConfig;

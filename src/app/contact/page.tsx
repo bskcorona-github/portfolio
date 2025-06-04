@@ -6,7 +6,7 @@ import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Mail, MessageSquare, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MessageSquare, MapPin, Send } from "lucide-react";
 
 const ContactHero = () => {
   return (
@@ -101,8 +101,6 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-
-      const result = await response.json();
 
       if (response.ok) {
         setSubmitStatus("success");

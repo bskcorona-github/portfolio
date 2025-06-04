@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
-  Users,
   TrendingUp,
   BarChart3,
   Heart,
