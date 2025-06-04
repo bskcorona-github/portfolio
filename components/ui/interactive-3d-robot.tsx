@@ -3,6 +3,7 @@
 import React, { Suspense, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import SplineErrorBoundary from "./error-boundary";
 
 interface InteractiveRobotSplineProps {
   scene: string;
@@ -48,14 +49,21 @@ const ErrorFallback: React.FC<{ error?: Error | null }> = ({ error }) => (
   </div>
 );
 
-// Next.js 15対応 - シンプルなdynamic import
+// 環境変数による制御
+const isSplineEnabled =
+  process.env.NODE_ENV === "development" ||
+  process.env.NEXT_PUBLIC_ENABLE_SPLINE === "true";
+
+// Next.js 14対応 - Error Boundaryで保護されたdynamic import
 const SplineComponent = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
   loading: () => <LoadingSpinner message="Splineライブラリを読み込み中..." />,
 });
 
 // 3Dロボットのプレースホルダーコンポーネント
-const RobotPlaceholder: React.FC = () => (
+const RobotPlaceholder: React.FC<{ reason?: string }> = ({
+  reason = "メンテナンス中",
+}) => (
   <div className="flex flex-col items-center justify-center h-full text-center p-8 bg-gradient-to-br from-gray-900/20 to-black/40 backdrop-blur-sm">
     <motion.div
       className="w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-full flex items-center justify-center mb-6"
@@ -87,7 +95,7 @@ const RobotPlaceholder: React.FC = () => (
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
     >
-      3Dロボットは現在メンテナンス中です
+      3Dロボットは現在{reason}です
     </motion.p>
     <motion.p
       className="text-white/40 text-xs"
@@ -142,11 +150,14 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
     );
   }
 
-  // Splineが無効化されている場合、プレースホルダーのみ表示
-  if (disableSpline) {
+  // 環境変数またはpropsでSplineが無効化されている場合
+  if (!isSplineEnabled || disableSpline) {
+    const reason = !isSplineEnabled
+      ? "本番環境で安定性のため無効化"
+      : "メンテナンス中";
     return (
       <div className={`relative ${className}`}>
-        <RobotPlaceholder />
+        <RobotPlaceholder reason={reason} />
       </div>
     );
   }
@@ -157,51 +168,53 @@ export const InteractiveRobotSpline: React.FC<InteractiveRobotSplineProps> = ({
       role="img"
       aria-label="3Dロボットアニメーション"
     >
-      {/* Loading State */}
-      {isLoading && !hasError && (
-        <motion.div
-          className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <LoadingSpinner />
-        </motion.div>
-      )}
-
-      {/* Error State */}
-      {hasError && (
-        <motion.div
-          className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <ErrorFallback error={error} />
-        </motion.div>
-      )}
-
-      {/* Spline 3D Scene */}
-      {!hasError && (
-        <motion.div
-          className="w-full h-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoading ? 0 : 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Suspense
-            fallback={
-              <LoadingSpinner message="Splineコンポーネントを準備中..." />
-            }
+      <SplineErrorBoundary>
+        {/* Loading State */}
+        {isLoading && !hasError && (
+          <motion.div
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <SplineComponent
-              scene={scene}
-              onLoad={handleLoad}
-              onError={handleError}
-              className="w-full h-full"
-            />
-          </Suspense>
-        </motion.div>
-      )}
+            <LoadingSpinner />
+          </motion.div>
+        )}
+
+        {/* Error State */}
+        {hasError && (
+          <motion.div
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <ErrorFallback error={error} />
+          </motion.div>
+        )}
+
+        {/* Spline 3D Scene */}
+        {!hasError && (
+          <motion.div
+            className="w-full h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isLoading ? 0 : 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Suspense
+              fallback={
+                <LoadingSpinner message="Splineコンポーネントを準備中..." />
+              }
+            >
+              <SplineComponent
+                scene={scene}
+                onLoad={handleLoad}
+                onError={handleError}
+                className="w-full h-full"
+              />
+            </Suspense>
+          </motion.div>
+        )}
+      </SplineErrorBoundary>
     </div>
   );
 };

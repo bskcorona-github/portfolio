@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/$1"
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -20,5 +20,13 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "NEXT_PUBLIC_ENABLE_SPLINE": "false"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_ENABLE_SPLINE": "false"
+    }
+  }
 }
