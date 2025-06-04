@@ -2,10 +2,38 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
+
+// 型定義
+interface BaseProject {
+  title: string;
+  description: string;
+  language: string;
+  category: "webapp" | "github";
+  technologies: string[];
+  type: string;
+}
+
+interface WebProject extends BaseProject {
+  category: "webapp";
+  image: string;
+  url: string;
+}
+
+interface GitHubProject extends BaseProject {
+  category: "github";
+  githubUrl: string;
+  stats: {
+    stars: number;
+    commits: number;
+  };
+}
+
+type Project = WebProject | GitHubProject;
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -14,7 +42,7 @@ export default function ProjectsPage() {
     "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
 
   // Webアプリケーション・ランディングページ
-  const webProjects = [
+  const webProjects: WebProject[] = [
     {
       title: "BattleFlow",
       description:
@@ -90,7 +118,7 @@ export default function ProjectsPage() {
   ];
 
   // GitHubプロジェクト
-  const githubProjects = [
+  const githubProjects: GitHubProject[] = [
     {
       title: "elorating-frontend",
       description:
@@ -155,7 +183,7 @@ export default function ProjectsPage() {
     },
   ];
 
-  const allProjects = [...webProjects, ...githubProjects];
+  const allProjects: Project[] = [...webProjects, ...githubProjects];
 
   const categories = [
     { id: "all", name: "All", count: allProjects.length },
@@ -249,9 +277,11 @@ export default function ProjectsPage() {
                   {/* Project Image for Web Projects */}
                   {project.category !== "github" && (
                     <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={(project as any).image}
+                      <Image
+                        src={(project as WebProject).image}
                         alt={project.title}
+                        width={1350}
+                        height={800}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -272,7 +302,7 @@ export default function ProjectsPage() {
                       <div className="flex space-x-2">
                         {project.category === "github" ? (
                           <a
-                            href={(project as any).githubUrl}
+                            href={(project as GitHubProject).githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
@@ -287,7 +317,7 @@ export default function ProjectsPage() {
                           </a>
                         ) : (
                           <a
-                            href={(project as any).url}
+                            href={(project as WebProject).url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
@@ -338,7 +368,9 @@ export default function ProjectsPage() {
                       {/* GitHub Stats for GitHub projects */}
                       {project.category === "github" && (
                         <div className="flex items-center space-x-4 text-sm text-gray-400">
-                          <span>{(project as any).stats.commits} commits</span>
+                          <span>
+                            {(project as GitHubProject).stats.commits} commits
+                          </span>
                         </div>
                       )}
 
