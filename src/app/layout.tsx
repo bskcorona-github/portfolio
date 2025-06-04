@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     "レスポンシブデザイン",
     "API開発",
   ],
-  authors: [{ name: "Frontend Developer" }],
-  creator: "Frontend Developer",
+  authors: [{ name: "Full Stack Developer" }],
+  creator: "Full Stack Developer",
   publisher: "Portfolio",
   formatDetection: {
     email: false,
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Portfolio - Frontend Developer",
+    title: "Portfolio - Full Stack Developer",
     description:
-      "フロントエンドエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
+      "フルスタックエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
     url: "https://bskportfolio.vercel.app",
     siteName: "Portfolio",
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Portfolio - Frontend Developer",
+        alt: "Portfolio - Full Stack Developer",
       },
     ],
     locale: "ja_JP",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio - Frontend Developer",
+    title: "Portfolio - Full Stack Developer",
     description:
-      "フロントエンドエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
+      "フルスタックエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
     images: ["/og-image.png"],
   },
   robots: {
@@ -92,11 +92,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Frontend Developer",
+              name: "Full Stack Developer",
               description:
-                "フロントエンドエンジニア・Webアプリケーション開発者",
+                "フルスタックエンジニア・Webアプリケーション開発者",
               url: "https://bskportfolio.vercel.app",
-              jobTitle: "Frontend Developer",
+              jobTitle: "Full Stack Developer",
               worksFor: {
                 "@type": "Organization",
                 name: "Various Companies",

@@ -76,7 +76,7 @@ export async function GET() {
       },
     ],
     techStack: {
-      frontend: [
+      Full Stack: [
         "Next.js 15 (App Router)",
         "TypeScript",
         "Tailwind CSS v4",

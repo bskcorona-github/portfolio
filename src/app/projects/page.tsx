@@ -63,7 +63,7 @@ export default function ProjectsPage() {
         "https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       language: "JavaScript",
       category: "webapp",
-      url: "https://my-pokedex-frontend.vercel.app/",
+      url: "https://my-pokedex-Full Stack.vercel.app/",
       technologies: ["JavaScript", "HTML", "CSS", "API"],
       type: "Webアプリケーション",
     },
@@ -120,12 +120,12 @@ export default function ProjectsPage() {
   // GitHubプロジェクト
   const githubProjects: GitHubProject[] = [
     {
-      title: "elorating-frontend",
+      title: "elorating-Full Stack",
       description:
         "elorating5vs5フロントエンド側 - ゲームレーティングシステムのWebアプリケーション",
       language: "JavaScript",
       category: "github",
-      githubUrl: "https://github.com/bskcorona-github/elorating-frontend",
+      githubUrl: "https://github.com/bskcorona-github/elorating-Full Stack",
       technologies: ["JavaScript", "HTML", "CSS"],
       stats: { stars: 0, commits: 25 },
       type: "ソースコード",

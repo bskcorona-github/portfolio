@@ -72,7 +72,7 @@
 - **概要**: ポケモンのデータベースを提供するウェブアプリケーション。各ポケモンの詳細情報、タイプ、能力値などを検索・閲覧できます。
 - **言語**: JavaScript
 - **カテゴリ**: Web アプリケーション
-- **URL**: https://my-pokedex-frontend.vercel.app/
+- **URL**: https://my-pokedex-Full Stack.vercel.app/
 - **技術**: JavaScript, HTML, CSS, API
 
 #### Magic MCP
@@ -109,11 +109,11 @@
 
 ### GitHub プロジェクト
 
-#### elorating-frontend
+#### elorating-Full Stack
 
 - **概要**: elorating5vs5 フロントエンド側 - ゲームレーティングシステムの Web アプリケーション
 - **言語**: JavaScript
-- **URL**: https://github.com/bskcorona-github/elorating-frontend
+- **URL**: https://github.com/bskcorona-github/elorating-Full Stack
 - **技術**: JavaScript, HTML, CSS
 - **統計**: Stars: 0, Commits: 25
 
