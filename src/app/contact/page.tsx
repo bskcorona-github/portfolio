@@ -105,7 +105,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         setSubmitStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", website: "" });
       } else {
         setSubmitStatus("error");
       }
