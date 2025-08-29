@@ -68,6 +68,9 @@ export const Navigation: React.FC = () => {
             <button
               className="md:hidden p-2 rounded-md focus:outline-none text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="メニューを開閉"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? (
                 <svg
@@ -110,6 +113,9 @@ export const Navigation: React.FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="md:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-lg"
+          role="dialog"
+          aria-modal="true"
+          id="mobile-menu"
         >
           <div className="flex flex-col items-center justify-center h-full space-y-6 text-lg">
             <button

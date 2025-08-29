@@ -373,7 +373,7 @@ export const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full z-200 top-[10%] sm:top-[25%] relative"
+          className="w-full z-[200] top-[10%] sm:top-[25%] relative"
         >
           <motion.div variants={itemVariants}>
             <FeatureItem

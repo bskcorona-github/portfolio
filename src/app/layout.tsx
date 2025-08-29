@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/vercel.svg",
         width: 1200,
         height: 630,
         alt: "Portfolio - Full Stack Developer",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "Portfolio - Full Stack Developer",
     description:
       "フルスタックエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
-    images: ["/og-image.png"],
+    images: ["/vercel.svg"],
   },
   robots: {
     index: true,

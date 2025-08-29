@@ -76,6 +76,7 @@ const ContactForm = () => {
     email: "",
     subject: "",
     message: "",
+    website: "", // honeypot
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -138,6 +139,20 @@ const ContactForm = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* honeypot field */}
+                  <div className="hidden">
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        autoComplete="off"
+                        tabIndex={-1}
+                      />
+                    </label>
+                  </div>
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
                       お名前 *
@@ -329,7 +344,7 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Matrix Code背景 - 最背面（50%透過） - 固定 */}
-      <div className="fixed inset-0 z-0 opacity-50">
+      <div className="fixed inset-0 z-0 opacity-50 pointer-events-none">
         <MatrixRain
           fontSize={16}
           color="#00ff00"
@@ -340,7 +355,7 @@ export default function ContactPage() {
       </div>
 
       {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10">
+      <div className="fixed inset-0 z-10 pointer-events-none">
         <InteractiveRobotSpline
           scene={ROBOT_SCENE_URL}
           className="w-full h-full"

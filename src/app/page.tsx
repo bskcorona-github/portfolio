@@ -20,7 +20,7 @@ export default function HomePage() {
       <Navigation />
 
       {/* Matrix Code背景 - 最背面（50%透過） - 固定 */}
-      <div className="fixed inset-0 z-0 opacity-50">
+      <div className="fixed inset-0 z-0 opacity-50 pointer-events-none">
         <MatrixRain
           fontSize={16}
           color="#00ff00"
@@ -31,7 +31,7 @@ export default function HomePage() {
       </div>
 
       {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10">
+      <div className="fixed inset-0 z-10 pointer-events-none">
         <InteractiveRobotSpline
           scene={ROBOT_SCENE_URL}
           className="w-full h-full"

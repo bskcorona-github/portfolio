@@ -3,15 +3,33 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const { name, email, subject, message, website } = await request.json();
 
     // 入力検証
-    if (!name || !email || !message) {
+    // Honeypot: website が埋まっていたらボットと判断
+    if (website) {
+      return NextResponse.json({ success: true }, { status: 204 });
+    }
+
+    const isValidEmail = (value: string) =>
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 254;
+
+    const sanitize = (s: string, max = 4000) =>
+      String(s || "")
+        .replace(/[\r\n]/g, " ")
+        .slice(0, max)
+        .trim();
+
+    if (!name || !email || !message || !isValidEmail(email)) {
       return NextResponse.json(
-        { error: "必須項目が入力されていません" },
+        { error: "入力が不正です" },
         { status: 400 }
       );
     }
+
+    const safeName = sanitize(name, 120);
+    const safeSubject = sanitize(subject || "お問い合わせ", 120);
+    const safeMessage = sanitize(message, 4000);
 
     // Nodemailerのトランスポーター設定
     const transporter = nodemailer.createTransport({
@@ -28,7 +46,7 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.MAIL_FROM,
       to: "kanemasa.tatsuro@gmail.com",
-      subject: `【ポートフォリオお問い合わせ】${subject || "お問い合わせ"}`,
+      subject: `【ポートフォリオお問い合わせ】${safeSubject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">
@@ -37,14 +55,14 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #06b6d4; margin-top: 0;">送信者情報</h3>
-            <p><strong>お名前:</strong> ${name}</p>
+            <p><strong>お名前:</strong> ${safeName}</p>
             <p><strong>メールアドレス:</strong> ${email}</p>
-            <p><strong>件名:</strong> ${subject || "お問い合わせ"}</p>
+            <p><strong>件名:</strong> ${safeSubject}</p>
           </div>
           
           <div style="background-color: #ffffff; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px;">
             <h3 style="color: #06b6d4; margin-top: 0;">メッセージ内容</h3>
-            <div style="white-space: pre-wrap; line-height: 1.6;">${message}</div>
+            <div style="white-space: pre-wrap; line-height: 1.6;">${safeMessage}</div>
           </div>
           
           <div style="margin-top: 20px; padding: 15px; background-color: #e3f2fd; border-radius: 8px;">
@@ -69,13 +87,13 @@ export async function POST(request: NextRequest) {
             お問い合わせありがとうございます
           </h2>
           
-          <p>${name} 様</p>
+          <p>${safeName} 様</p>
           
           <p>この度は私のポートフォリオサイトからお問い合わせいただき、誠にありがとうございます。</p>
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #06b6d4; margin-top: 0;">受信内容の確認</h3>
-            <p><strong>件名:</strong> ${subject || "お問い合わせ"}</p>
+            <p><strong>件名:</strong> ${safeSubject}</p>
             <p><strong>送信日時:</strong> ${new Date().toLocaleString(
               "ja-JP"
             )}</p>
