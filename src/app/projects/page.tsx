@@ -104,6 +104,18 @@ export default function ProjectsPage() {
       type: "ランディングページ",
     },
     {
+      title: "Kiznet",
+      description:
+        "家系図を作成・編集できるWebアプリ。新規作成、サンプル家系図、親子・配偶者関係、自動レイアウト、エクスポート・印刷機能に対応。",
+      image:
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://kiznet.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+      type: "Webアプリケーション",
+    },
+    {
       title: "BeautySalon",
       description:
         "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
