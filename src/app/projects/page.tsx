@@ -141,78 +141,14 @@ export default function ProjectsPage() {
     },
   ];
 
-  // GitHubプロジェクト
-  const githubProjects: GitHubProject[] = [
-    {
-      title: "elorating-Full Stack",
-      description:
-        "elorating5vs5フロントエンド側 - ゲームレーティングシステムのWebアプリケーション",
-      language: "JavaScript",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/elorating-Full Stack",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      stats: { stars: 0, commits: 25 },
-      type: "ソースコード",
-    },
-    {
-      title: "elorating-backend",
-      description:
-        "elorating5vs5のバックエンドAPI - Go言語で構築されたレーティングシステム",
-      language: "Go",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/elorating-backend",
-      technologies: ["Go", "REST API"],
-      stats: { stars: 0, commits: 42 },
-      type: "ソースコード",
-    },
-    {
-      title: "Bread_Cli",
-      description: "コマンドライン環境での効率的な作業を支援するCLIツール",
-      language: "Go",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/Bread_Cli",
-      technologies: ["Go", "CLI"],
-      stats: { stars: 0, commits: 15 },
-      type: "ソースコード",
-    },
-    {
-      title: "pan",
-      description: "Go言語で開発された軽量なWebアプリケーション",
-      language: "Go",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/pan",
-      technologies: ["Go", "Web"],
-      stats: { stars: 0, commits: 8 },
-      type: "ソースコード",
-    },
-    {
-      title: "1_todoList",
-      description: "Go言語で実装されたシンプルなTodoリスト管理アプリケーション",
-      language: "Go",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/1_todoList",
-      technologies: ["Go", "Todo App"],
-      stats: { stars: 0, commits: 12 },
-      type: "ソースコード",
-    },
-    {
-      title: "2_calculator",
-      description: "Go言語で開発された計算機アプリケーション",
-      language: "Go",
-      category: "github",
-      githubUrl: "https://github.com/bskcorona-github/2_calculator",
-      technologies: ["Go", "Calculator"],
-      stats: { stars: 0, commits: 7 },
-      type: "ソースコード",
-    },
-  ];
+  // GitHubプロジェクト（一覧から除外のため空）
+  const githubProjects: GitHubProject[] = [];
 
   const allProjects: Project[] = [...webProjects, ...githubProjects];
 
   const categories = [
     { id: "all", name: "All", count: allProjects.length },
     { id: "webapp", name: "Web Apps", count: webProjects.length },
-    { id: "github", name: "GitHub", count: githubProjects.length },
   ];
 
   const filteredProjects =
