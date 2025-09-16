@@ -92,6 +92,18 @@ export default function ProjectsPage() {
       type: "ランディングページ",
     },
     {
+      title: "沖縄 海遊び",
+      description:
+        "沖縄のマリンスポーツ・マリンレジャーで海遊び。ジェットスキー、パラセーリング、バナナボート、フライボードなどの体験を、安全第一・少人数制で提供する予約用ランディングページ。",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://marine-okinawa-lp.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      type: "ランディングページ",
+    },
+    {
       title: "BeautySalon",
       description:
         "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
