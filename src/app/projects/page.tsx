@@ -116,6 +116,18 @@ export default function ProjectsPage() {
       type: "Webアプリケーション",
     },
     {
+      title: "なんくるリサイクル",
+      description:
+        "沖縄の中古・フリマの掘り出し物を毎日追加するコミュニティマーケット。カテゴリ・エリア検索、出品導線、マイページ、ブログ・FAQなどを備えた地域密着型サイト。",
+      image:
+        "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://nankuru-recycle.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      type: "Webアプリケーション",
+    },
+    {
       title: "BeautySalon",
       description:
         "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
