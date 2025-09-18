@@ -271,28 +271,46 @@ export default function ProjectsPage() {
                 <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
                   {/* Project Image for Web Projects */}
                   {project.category !== "github" && (
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={(project as WebProject).image}
-                        alt={project.title}
-                        width={1350}
-                        height={800}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
-                          {project.type}
-                        </span>
+                    <a
+                      href={(project as WebProject).url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={(project as WebProject).image}
+                          alt={project.title}
+                          width={1350}
+                          height={800}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute top-4 right-4">
+                          <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
+                            {project.type}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   )}
 
                   <div className="p-6">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-xl font-bold text-white group-hover:text-green-300 transition-colors">
-                        {project.title}
+                        {project.category !== "github" ? (
+                          <a
+                            href={(project as WebProject).url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                          >
+                            {project.title}
+                          </a>
+                        ) : (
+                          project.title
+                        )}
                       </h3>
                       <div className="flex space-x-2">
                         {project.category === "github" ? (
