@@ -7,6 +7,7 @@ import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
+import { useProjectImage } from "@/hooks/useProjectImage";
 
 // 型定義
 interface BaseProject {
@@ -272,40 +273,52 @@ export default function ProjectsPage() {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="group"
-              >
-                <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
-                  {/* Project Image for Web Projects */}
-                  {project.category !== "github" && (
-                    <a
-                      href={(project as WebProject).url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        <Image
-                          src={(project as WebProject).image}
-                          alt={project.title}
-                          width={1350}
-                          height={800}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
-                            {project.type}
-                          </span>
+            {filteredProjects.map((project, index) => {
+              const { image: dynamicImage, loading } = useProjectImage(
+                project.category === "webapp" ? (project as WebProject).url : "",
+                (project as WebProject).image || ""
+              );
+
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  className="group"
+                >
+                  <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
+                    {/* Project Image for Web Projects */}
+                    {project.category !== "github" && (
+                      <a
+                        href={(project as WebProject).url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <div className="relative h-48 overflow-hidden">
+                          {loading ? (
+                            <div className="w-full h-full bg-gray-800 animate-pulse flex items-center justify-center">
+                              <div className="text-gray-400 text-sm">Loading...</div>
+                            </div>
+                          ) : (
+                            <Image
+                              src={dynamicImage || (project as WebProject).image}
+                              alt={project.title}
+                              width={1350}
+                              height={800}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                          <div className="absolute top-4 right-4">
+                            <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
+                              {project.type}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  )}
+                      </a>
+                    )}
 
                   <div className="p-6">
                     {/* Header */}
@@ -410,7 +423,8 @@ export default function ProjectsPage() {
                   </div>
                 </Card>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
 
           {/* GitHub Profile Link */}
