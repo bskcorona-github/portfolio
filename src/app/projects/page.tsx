@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
@@ -22,8 +22,6 @@ interface WebProject extends BaseProject {
   category: "webapp";
   image: string;
   url: string;
-  dynamicImage?: string | null;
-  imageLoading?: boolean;
 }
 
 interface GitHubProject extends BaseProject {
@@ -39,50 +37,9 @@ type Project = WebProject | GitHubProject;
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [projectsWithImages, setProjectsWithImages] = useState<WebProject[]>([]);
 
   const ROBOT_SCENE_URL =
     "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
-  // 動的画像を取得する関数
-  const fetchProjectImage = async (url: string): Promise<string | null> => {
-    try {
-      console.log('Fetching image for URL:', url);
-      const response = await fetch(`/api/screenshot?url=${encodeURIComponent(url)}`);
-      if (!response.ok) {
-        console.error('API response not ok:', response.status, response.statusText);
-        return null;
-      }
-      
-      const data = await response.json();
-      console.log('API response data:', data);
-      const result = data.ogImage || data.twitterImage || null;
-      console.log('Final image URL:', result);
-      return result;
-    } catch (error) {
-      console.error('Error fetching project image:', error);
-      return null;
-    }
-  };
-
-  // プロジェクト画像を事前取得
-  useEffect(() => {
-    const fetchAllImages = async () => {
-      const updatedProjects = await Promise.all(
-        webProjects.map(async (project) => {
-          const dynamicImage = await fetchProjectImage(project.url);
-          return {
-            ...project,
-            dynamicImage,
-            imageLoading: false,
-          };
-        })
-      );
-      setProjectsWithImages(updatedProjects);
-    };
-
-    fetchAllImages();
-  }, []); // webProjectsは定数なので依存配列に含めない
 
   // Webアプリケーション・ランディングページ
   const webProjects: WebProject[] = [
@@ -171,18 +128,6 @@ export default function ProjectsPage() {
       type: "Webアプリケーション",
     },
     {
-      title: "Figma Flower Landing Page",
-      description:
-        "人工花のEC向けランディングページ。トップセール、デイリーオファー、特徴、コレクション、レビュー、フッターまでFigmaデザインを忠実に再現。",
-      image:
-        "https://images.unsplash.com/photo-1491002052546-bf38f186af56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      language: "Next.js",
-      category: "webapp",
-      url: "https://figma-flower-landing-page.vercel.app/",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-      type: "ランディングページ",
-    },
-    {
       title: "BeautySalon",
       description:
         "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
@@ -211,10 +156,7 @@ export default function ProjectsPage() {
   // GitHubプロジェクト（一覧から除外のため空）
   const githubProjects: GitHubProject[] = [];
 
-  const allProjects: Project[] = [
-    ...(projectsWithImages.length > 0 ? projectsWithImages : webProjects), 
-    ...githubProjects
-  ];
+  const allProjects: Project[] = [...webProjects, ...githubProjects];
 
   const categories = [
     { id: "all", name: "All", count: allProjects.length },
@@ -329,52 +271,28 @@ export default function ProjectsPage() {
                 <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
                   {/* Project Image for Web Projects */}
                   {project.category !== "github" && (
-                    <a
-                      href={(project as WebProject).url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        {(project as WebProject).imageLoading ? (
-                          <div className="w-full h-full bg-gray-800 animate-pulse flex items-center justify-center">
-                            <div className="text-gray-400 text-sm">Loading...</div>
-                          </div>
-                        ) : (
-                          <Image
-                            src={(project as WebProject).dynamicImage || (project as WebProject).image}
-                            alt={project.title}
-                            width={1350}
-                            height={800}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
-                            {project.type}
-                          </span>
-                        </div>
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={(project as WebProject).image}
+                        alt={project.title}
+                        width={1350}
+                        height={800}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute top-4 right-4">
+                        <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
+                          {project.type}
+                        </span>
                       </div>
-                    </a>
+                    </div>
                   )}
 
                   <div className="p-6">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-xl font-bold text-white group-hover:text-green-300 transition-colors">
-                        {project.category !== "github" ? (
-                          <a
-                            href={(project as WebProject).url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:underline"
-                          >
-                            {project.title}
-                          </a>
-                        ) : (
-                          project.title
-                        )}
+                        {project.title}
                       </h3>
                       <div className="flex space-x-2">
                         {project.category === "github" ? (
