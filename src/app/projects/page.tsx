@@ -47,11 +47,18 @@ export default function ProjectsPage() {
   // 動的画像を取得する関数
   const fetchProjectImage = async (url: string): Promise<string | null> => {
     try {
+      console.log('Fetching image for URL:', url);
       const response = await fetch(`/api/screenshot?url=${encodeURIComponent(url)}`);
-      if (!response.ok) return null;
+      if (!response.ok) {
+        console.error('API response not ok:', response.status, response.statusText);
+        return null;
+      }
       
       const data = await response.json();
-      return data.ogImage || data.twitterImage || null;
+      console.log('API response data:', data);
+      const result = data.ogImage || data.twitterImage || null;
+      console.log('Final image URL:', result);
+      return result;
     } catch (error) {
       console.error('Error fetching project image:', error);
       return null;
