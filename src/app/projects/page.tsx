@@ -75,7 +75,7 @@ export default function ProjectsPage() {
     };
 
     fetchAllImages();
-  }, []);
+  }, []); // webProjectsは定数なので依存配列に含めない
 
   // Webアプリケーション・ランディングページ
   const webProjects: WebProject[] = [
