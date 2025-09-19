@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
-import { useProjectImage } from "@/hooks/useProjectImage";
 
 // 型定義
 interface BaseProject {
@@ -23,6 +22,8 @@ interface WebProject extends BaseProject {
   category: "webapp";
   image: string;
   url: string;
+  dynamicImage?: string | null;
+  imageLoading?: boolean;
 }
 
 interface GitHubProject extends BaseProject {
@@ -38,9 +39,43 @@ type Project = WebProject | GitHubProject;
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [projectsWithImages, setProjectsWithImages] = useState<WebProject[]>([]);
 
   const ROBOT_SCENE_URL =
     "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
+
+  // 動的画像を取得する関数
+  const fetchProjectImage = async (url: string): Promise<string | null> => {
+    try {
+      const response = await fetch(`/api/screenshot?url=${encodeURIComponent(url)}`);
+      if (!response.ok) return null;
+      
+      const data = await response.json();
+      return data.ogImage || data.twitterImage || null;
+    } catch (error) {
+      console.error('Error fetching project image:', error);
+      return null;
+    }
+  };
+
+  // プロジェクト画像を事前取得
+  useEffect(() => {
+    const fetchAllImages = async () => {
+      const updatedProjects = await Promise.all(
+        webProjects.map(async (project) => {
+          const dynamicImage = await fetchProjectImage(project.url);
+          return {
+            ...project,
+            dynamicImage,
+            imageLoading: false,
+          };
+        })
+      );
+      setProjectsWithImages(updatedProjects);
+    };
+
+    fetchAllImages();
+  }, []);
 
   // Webアプリケーション・ランディングページ
   const webProjects: WebProject[] = [
@@ -169,7 +204,10 @@ export default function ProjectsPage() {
   // GitHubプロジェクト（一覧から除外のため空）
   const githubProjects: GitHubProject[] = [];
 
-  const allProjects: Project[] = [...webProjects, ...githubProjects];
+  const allProjects: Project[] = [
+    ...(projectsWithImages.length > 0 ? projectsWithImages : webProjects), 
+    ...githubProjects
+  ];
 
   const categories = [
     { id: "all", name: "All", count: allProjects.length },
@@ -273,52 +311,46 @@ export default function ProjectsPage() {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => {
-              const { image: dynamicImage, loading } = useProjectImage(
-                project.category === "webapp" ? (project as WebProject).url : "",
-                (project as WebProject).image || ""
-              );
-
-              return (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="group"
-                >
-                  <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
-                    {/* Project Image for Web Projects */}
-                    {project.category !== "github" && (
-                      <a
-                        href={(project as WebProject).url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        <div className="relative h-48 overflow-hidden">
-                          {loading ? (
-                            <div className="w-full h-full bg-gray-800 animate-pulse flex items-center justify-center">
-                              <div className="text-gray-400 text-sm">Loading...</div>
-                            </div>
-                          ) : (
-                            <Image
-                              src={dynamicImage || (project as WebProject).image}
-                              alt={project.title}
-                              width={1350}
-                              height={800}
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                          )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                          <div className="absolute top-4 right-4">
-                            <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
-                              {project.type}
-                            </span>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="group"
+              >
+                <Card className="h-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-black/60 transition-all duration-300 overflow-hidden">
+                  {/* Project Image for Web Projects */}
+                  {project.category !== "github" && (
+                    <a
+                      href={(project as WebProject).url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="relative h-48 overflow-hidden">
+                        {(project as WebProject).imageLoading ? (
+                          <div className="w-full h-full bg-gray-800 animate-pulse flex items-center justify-center">
+                            <div className="text-gray-400 text-sm">Loading...</div>
                           </div>
+                        ) : (
+                          <Image
+                            src={(project as WebProject).dynamicImage || (project as WebProject).image}
+                            alt={project.title}
+                            width={1350}
+                            height={800}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute top-4 right-4">
+                          <span className="px-3 py-1 bg-green-500/80 text-white text-xs rounded-full">
+                            {project.type}
+                          </span>
                         </div>
-                      </a>
-                    )}
+                      </div>
+                    </a>
+                  )}
 
                   <div className="p-6">
                     {/* Header */}
@@ -423,8 +455,7 @@ export default function ProjectsPage() {
                   </div>
                 </Card>
               </motion.div>
-              );
-            })}
+            ))}
           </div>
 
           {/* GitHub Profile Link */}
