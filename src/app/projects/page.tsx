@@ -151,6 +151,18 @@ export default function ProjectsPage() {
       technologies: ["HTML", "CSS", "JavaScript", "Responsive"],
       type: "ランディングページ",
     },
+    {
+      title: "Shopify Demo Store",
+      description:
+        "Shopifyの機能とカスタマイズ性を実証するためのデモストア。ECサイトの基本機能、商品管理、決済システム、管理画面の操作などを体験できる実装例です。モダンなデザインとレスポンシブ対応で、実際のECサイト運営に必要な機能を網羅しています。",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Shopify",
+      category: "webapp",
+      url: "https://test-4yksm6o26-bsk-coronas-projects.vercel.app/",
+      technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "EC"],
+      type: "ECサイト",
+    },
   ];
 
   // GitHubプロジェクト（一覧から除外のため空）
