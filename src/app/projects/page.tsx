@@ -163,6 +163,18 @@ export default function ProjectsPage() {
       technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "EC"],
       type: "ECサイト",
     },
+    {
+      title: "訪問看護ステーション沖縄",
+      description:
+        "沖縄県で24時間365日対応の訪問看護サービスを提供するステーションの公式サイト。在宅療養中の患者様とご家族様を、経験豊富な看護師がサポートします。医療機関との連携により、継続的で質の高い看護サービスをご提供するプロフェッショナルな医療サービスサイトです。",
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://test-kaigo.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "医療"],
+      type: "医療サービスサイト",
+    },
   ];
 
   // GitHubプロジェクト（一覧から除外のため空）
