@@ -175,6 +175,18 @@ export default function ProjectsPage() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "医療"],
       type: "医療サービスサイト",
     },
+    {
+      title: "顧客管理システム",
+      description:
+        "企業向けの包括的な顧客管理システム（CRM）。ダッシュボード、顧客情報管理、予約管理、売上分析、サービス管理、リソース設定などの機能を備えた本格的なビジネス管理ツールです。ログイン認証機能付きで、セキュアな顧客データ管理を実現します。",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://kokyakukanri-mvp.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Authentication", "CRM"],
+      type: "CRMシステム",
+    },
   ];
 
   // GitHubプロジェクト（一覧から除外のため空）
