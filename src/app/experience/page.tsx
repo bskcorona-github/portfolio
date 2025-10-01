@@ -2,15 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
 
 export default function ExperiencePage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   const experiences = [
     {
       company: "株式会社りゅう",
@@ -120,14 +116,6 @@ export default function ExperiencePage() {
           characters="01ExperienceWorkSkillsDevOpsJavaScriptTypeScriptReactNext.js"
           fadeOpacity={0.05}
           speed={0.6}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10 opacity-40">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 

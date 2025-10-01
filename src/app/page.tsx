@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { HeroSection } from "@/components/ui/hero-odyssey";
 import { FeaturesSection } from "@/components/ui/features-section";
 import { AboutSection } from "@/components/ui/about-section";
@@ -11,9 +10,6 @@ import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 
 export default function HomePage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* グローバルナビゲーション */}
@@ -27,14 +23,6 @@ export default function HomePage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10 pointer-events-none">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 
@@ -65,8 +53,7 @@ export default function HomePage() {
                   © 2024 Kinjo_Tatsuro Portfolio. All rights reserved.
                 </p>
                 <p className="text-xs opacity-70">
-                  Built with Next.js, TypeScript, Tailwind CSS, Spline 3D, and
-                  lots of ❤️
+                  Built with Next.js, TypeScript, Tailwind CSS, and lots of ❤️
                 </p>
               </div>
             </div>

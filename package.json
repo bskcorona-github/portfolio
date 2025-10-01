@@ -8,7 +8,6 @@
     "typescript",
     "tailwindcss",
     "framer-motion",
-    "spline",
     "3d",
     "webgl",
     "matrix",
@@ -33,7 +32,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@splinetool/react-spline": "^4.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0",

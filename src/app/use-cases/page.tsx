@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import {
   Card,
   CardContent,
@@ -31,9 +30,6 @@ import {
 } from "lucide-react";
 
 export default function UseCasesPage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   const useCases = [
     {
       title: "企業内チャットボット",
@@ -233,14 +229,6 @@ export default function UseCasesPage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.6}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 */}
-      <div className="fixed inset-0 z-10 opacity-20">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 

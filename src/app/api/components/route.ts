@@ -34,25 +34,6 @@ export async function GET() {
         },
       },
       {
-        id: "layer-2",
-        name: "3D Interactive Robot",
-        component: "InteractiveRobotSpline",
-        type: "interactive-3d",
-        zIndex: 10,
-        opacity: 1.0,
-        features: [
-          "Spline 3D integration",
-          "Real-time interaction",
-          "Lazy loading with Suspense",
-          "Mobile-friendly controls",
-          "High-performance rendering",
-        ],
-        props: {
-          scene: "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode",
-          className: "w-full h-full",
-        },
-      },
-      {
         id: "layer-3",
         name: "Hero Odyssey Interface",
         component: "HeroSection",
@@ -83,7 +64,6 @@ export async function GET() {
         "Framer Motion",
       ],
       graphics: [
-        "Spline (@splinetool/react-spline)",
         "WebGL Shaders",
         "Canvas 2D API",
       ],

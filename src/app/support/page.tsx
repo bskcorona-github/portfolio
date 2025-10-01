@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { motion } from "framer-motion";
@@ -77,12 +76,7 @@ const FAQSection = () => {
     {
       question: "Magic MCPとは何ですか？",
       answer:
-        "Magic MCPは、3DロボットインタラクションとWebGLエフェクトを組み合わせた革新的なWebプラットフォームです。Model Context Protocol（MCP）を使用してAIとの高度な連携を実現しています。",
-    },
-    {
-      question: "3Dロボットが動作しない場合はどうすればよいですか？",
-      answer:
-        "3Dロボットが動作しない場合は、以下をご確認ください：1) WebGLが有効になっているか、2) ブラウザが最新版か、3) GPU加速が有効か。Chrome、Firefox、Safariの最新版でのご利用を推奨しています。",
+        "Magic MCPは、WebGLエフェクトを組み合わせた革新的なWebプラットフォームです。Model Context Protocol（MCP）を使用してAIとの高度な連携を実現しています。",
     },
     {
       question: "ライトニングエフェクトの色を変更できますか？",
@@ -287,9 +281,6 @@ const SupportResources = () => {
 };
 
 export default function SupportPage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* グローバルナビゲーション */}
@@ -303,14 +294,6 @@ export default function SupportPage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 

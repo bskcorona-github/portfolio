@@ -20,7 +20,6 @@ I'm still a beginner, but I look forward to working with you!
 ### Design & 3D Tools
 
 ![](https://skillicons.dev/icons?i=figma)
-<img src="./assets/icons/spline.svg" alt="Spline3D" width="48" height="48" />
 
 ### DevOps & CI/CD
 
@@ -33,7 +32,7 @@ I'm still a beginner, but I look forward to working with you!
 
 ### Additional Tools
 
-![🔄](https://img.shields.io/badge/Cursor-000000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Q3Vyc29yPC90aXRsZT48cGF0aCBkPSJNMTAgNWw2IDZIMTB2NmwtNi02aDZ6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white) ![🌳](https://img.shields.io/badge/SourceTree-0052CC?style=flat-square&logo=sourcetree&logoColor=white) ![🎨](https://img.shields.io/badge/Spline-000000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3BsaW5lPC90aXRsZT48cGF0aCBkPSJNMTIgMmw2IDR2OGwtNiA0LTYtNFY2bDYtNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+&logoColor=white) ![🗄️](https://img.shields.io/badge/DBeaver-382923?style=flat-square&logo=dbeaver&logoColor=white) ![📊](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white) ![📋](https://img.shields.io/badge/Backlog-026FA1?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+QmFja2xvZzwvdGl0bGU+PHBhdGggZD0iTTMgNWgxNnYySDN6bTAgNGgxNnYySDN6bTAgNGgxNnYySDN6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white) ![☁️](https://img.shields.io/badge/Google%20Drive-4285F4?style=flat-square&logo=googledrive&logoColor=white) ![🤖](https://img.shields.io/badge/ChatGPT-412991?style=flat-square&logo=openai&logoColor=white)
+![🔄](https://img.shields.io/badge/Cursor-000000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Q3Vyc29yPC90aXRsZT48cGF0aCBkPSJNMTAgNWw2IDZIMTB2NmwtNi02aDZ6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white) ![🌳](https://img.shields.io/badge/SourceTree-0052CC?style=flat-square&logo=sourcetree&logoColor=white) ![🗄️](https://img.shields.io/badge/DBeaver-382923?style=flat-square&logo=dbeaver&logoColor=white) ![📊](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white) ![📋](https://img.shields.io/badge/Backlog-026FA1?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+QmFja2xvZzwvdGl0bGU+PHBhdGggZD0iTTMgNWgxNnYySDN6bTAgNGgxNnYySDN6bTAgNGgxNnYySDN6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white) ![☁️](https://img.shields.io/badge/Google%20Drive-4285F4?style=flat-square&logo=googledrive&logoColor=white) ![🤖](https://img.shields.io/badge/ChatGPT-412991?style=flat-square&logo=openai&logoColor=white)
 
 **HeidiSQL** • **TeamSpirit** • **Claude** • **Magic**
 
@@ -41,7 +40,7 @@ I'm still a beginner, but I look forward to working with you!
 
 - Building innovative web applications with **Next.js** and **Nuxt.js**
 - Exploring **AI integration** for enhanced user experiences
-- Working with **Three.js** and **Spline3D** for immersive 3D web experiences
+- Working with **Three.js** for immersive 3D web experiences
 
 ## 🌐 Portfolio
 

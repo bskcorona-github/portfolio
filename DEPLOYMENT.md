@@ -96,7 +96,6 @@ npm run lint
 Vercel での自動 CDN 設定：
 
 - **Static Assets**: 自動キャッシュ
-- **3D Models**: Spline キャッシュ
 - **WebGL Shaders**: ブラウザキャッシュ
 
 ## 🔐 セキュリティ設定
@@ -105,7 +104,6 @@ Vercel での自動 CDN 設定：
 
 ```env
 # .env.local
-NEXT_PUBLIC_SPLINE_API_KEY=your_spline_key
 GITHUB_TOKEN=your_github_token
 ```
 

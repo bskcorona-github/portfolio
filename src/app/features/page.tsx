@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { FeaturesSection } from "@/components/ui/features-section";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
@@ -57,9 +56,6 @@ const FeaturesHero = () => {
 };
 
 export default function FeaturesPage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* グローバルナビゲーション */}
@@ -73,14 +69,6 @@ export default function FeaturesPage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 
@@ -127,7 +115,6 @@ export default function FeaturesPage() {
                   {
                     title: "3D・エフェクト",
                     items: [
-                      "Spline 3D",
                       "WebGL Shaders",
                       "Canvas API",
                       "Custom Animations",

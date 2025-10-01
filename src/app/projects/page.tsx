@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
@@ -38,9 +37,6 @@ type Project = WebProject | GitHubProject;
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   // Webアプリケーション・ランディングページ
   const webProjects: WebProject[] = [
     {
@@ -70,7 +66,7 @@ export default function ProjectsPage() {
     {
       title: "Magic MCP",
       description:
-        "MagicMCPServerを活用したかっこいいヒーローセクション。3Dロボット、WebGLライトニング、マトリックスコードが融合したインタラクティブな次世代Webエクスペリエンスを提供します。",
+        "MagicMCPServerを活用したかっこいいヒーローセクション。WebGLライトニング、マトリックスコードが融合したインタラクティブな次世代Webエクスペリエンスを提供します。",
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       language: "React",
@@ -217,14 +213,6 @@ export default function ProjectsPage() {
           characters="01ProjectsGitHubWebAppPortfolioReactNextJSNodeJSPythonHTML"
           fadeOpacity={0.05}
           speed={0.7}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10 opacity-40">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
@@ -57,9 +56,6 @@ import { MdWork, MdChat, MdGroup } from "react-icons/md";
 export default function SkillsPage() {
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   // 技術スタック詳細
   const skillCategories = [
     {
@@ -96,7 +92,6 @@ export default function SkillsPage() {
       name: "3D & Graphics",
       icon: "🎮",
       skills: [
-        { name: "Spline 3D", icon: FaCube, color: "#4338ca" },
         { name: "WebGL", icon: SiWebgl, color: "#990000" },
         { name: "Three.js", icon: SiThreedotjs, color: "#000000" },
         { name: "Blender", icon: SiBlender, color: "#f5792a" },
@@ -226,14 +221,6 @@ export default function SkillsPage() {
         />
       </div>
 
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10 opacity-40">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
-        />
-      </div>
-
       {/* コンテンツ層 */}
       <div className="relative z-20 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -253,7 +240,7 @@ export default function SkillsPage() {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               これまでに習得した技術スタックとプログラミング言語の使用実績
               <br />
-              3D Spline、MAGIC MCP、CLI開発ツールなど幅広い分野に対応
+              MAGIC MCP、CLI開発ツールなど幅広い分野に対応
             </p>
             <div className="mt-4 text-cyan-300 text-lg font-semibold">
               {totalSkills}+ Technologies

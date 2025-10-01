@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { motion } from "framer-motion";
@@ -84,7 +83,6 @@ const DocumentationSections = () => {
       color: "blue",
       items: [
         { title: "アーキテクチャ", description: "3層構造の詳細設計" },
-        { title: "3Dロボット統合", description: "Spline 3Dの実装方法" },
         { title: "WebGLシェーダー", description: "カスタムエフェクトの作成" },
         { title: "マトリックス背景", description: "アニメーション制御" },
       ],
@@ -262,13 +260,10 @@ const CodeExample = () => {
             <CardContent>
               <div className="bg-black/30 rounded-lg p-4 font-mono text-sm">
                 <pre className="text-gray-300 overflow-x-auto">
-                  {`import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
-import { HeroSection } from "@/components/ui/hero-odyssey";
+                  {`import { HeroSection } from "@/components/ui/hero-odyssey";
 import MatrixRain from "@/components/ui/matrix-code";
 
 export default function MyPage() {
-  const ROBOT_SCENE_URL = "your-spline-scene-url";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* Matrix背景 */}
@@ -278,14 +273,6 @@ export default function MyPage() {
           color="#00ff00"
           characters="01"
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット */}
-      <div className="fixed inset-0 z-10">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 
@@ -346,9 +333,6 @@ export default function MyPage() {
 };
 
 export default function DocsPage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* グローバルナビゲーション */}
@@ -362,14 +346,6 @@ export default function DocsPage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 

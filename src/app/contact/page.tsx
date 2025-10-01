@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { motion } from "framer-motion";
@@ -335,9 +334,6 @@ const ContactForm = () => {
 };
 
 export default function ContactPage() {
-  const ROBOT_SCENE_URL =
-    "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-
   return (
     <div className="relative bg-black overflow-hidden">
       {/* グローバルナビゲーション */}
@@ -351,14 +347,6 @@ export default function ContactPage() {
           characters="01アカサタナハマヤラワンイキシチニヒミリヰケセテネヘメレエコソトノホモロオクスツヌフムルウ"
           fadeOpacity={0.05}
           speed={0.8}
-        />
-      </div>
-
-      {/* 3Dロボット中間層 - 固定 */}
-      <div className="fixed inset-0 z-10 pointer-events-none">
-        <InteractiveRobotSpline
-          scene={ROBOT_SCENE_URL}
-          className="w-full h-full"
         />
       </div>
 
