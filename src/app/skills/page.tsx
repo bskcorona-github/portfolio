@@ -48,7 +48,7 @@ import {
   SiRedis,
   SiQiita,
 } from "react-icons/si";
-import { FaDatabase, FaServer, FaRobot, FaCube, FaMagic } from "react-icons/fa";
+import { FaDatabase, FaServer, FaRobot, FaMagic } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 import { MdWork, MdChat, MdGroup } from "react-icons/md";
