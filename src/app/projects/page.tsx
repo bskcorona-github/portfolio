@@ -183,6 +183,18 @@ export default function ProjectsPage() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Authentication", "CRM"],
       type: "CRMシステム",
     },
+    {
+      title: "るーぷくん",
+      description:
+        "YouTube動画を指定した区間でループ再生できるツール。mm:ssまたは秒.ミリ秒形式で開始/終了を設定可能。YouTube IFrame Player APIを使用した視聴補助ツールで、音楽練習や語学学習に最適です。Space/S/Eキーのショートカットにも対応。",
+      image:
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "JavaScript",
+      category: "webapp",
+      url: "https://rupukun.vercel.app/",
+      technologies: ["JavaScript", "YouTube IFrame API", "HTML", "CSS", "Vercel"],
+      type: "Webアプリケーション",
+    },
   ];
 
   // GitHubプロジェクト（一覧から除外のため空）
