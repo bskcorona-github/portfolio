@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/ui/navigation";
 import MatrixRain from "@/components/ui/matrix-code";
 import { Card } from "@/components/ui/card";
+import { useGitHubStats } from "@/hooks/use-github-stats";
 
 // React Icons imports
 import {
@@ -55,6 +56,7 @@ import { MdWork, MdChat, MdGroup } from "react-icons/md";
 
 export default function SkillsPage() {
   const [activeCategory, setActiveCategory] = useState("all");
+  const { stats, isLoading } = useGitHubStats();
 
   // 技術スタック詳細
   const skillCategories = [
@@ -270,26 +272,34 @@ export default function SkillsPage() {
                     <div className="text-center">
                       <div className="text-green-400 text-2xl mb-1">🕒</div>
                       <div className="text-cyan-400 text-xs">Total Commits</div>
-                      <div className="text-white font-bold text-xl">310</div>
+                      <div className={`text-white font-bold text-xl ${isLoading ? "animate-pulse" : ""}`}>
+                        {stats.totalCommits}
+                      </div>
                       <div className="text-gray-400 text-xs">(2025)</div>
                     </div>
 
                     <div className="text-center">
                       <div className="text-yellow-400 text-2xl mb-1">⭐</div>
                       <div className="text-cyan-400 text-xs">Stars Earned</div>
-                      <div className="text-white font-bold text-xl">0</div>
+                      <div className={`text-white font-bold text-xl ${isLoading ? "animate-pulse" : ""}`}>
+                        {stats.stars}
+                      </div>
                     </div>
 
                     <div className="text-center">
                       <div className="text-purple-400 text-2xl mb-1">🔀</div>
                       <div className="text-cyan-400 text-xs">Pull Requests</div>
-                      <div className="text-white font-bold text-xl">4</div>
+                      <div className={`text-white font-bold text-xl ${isLoading ? "animate-pulse" : ""}`}>
+                        {stats.pullRequests}
+                      </div>
                     </div>
 
                     <div className="text-center">
                       <div className="text-red-400 text-2xl mb-1">❗</div>
                       <div className="text-cyan-400 text-xs">Issues</div>
-                      <div className="text-white font-bold text-xl">3</div>
+                      <div className={`text-white font-bold text-xl ${isLoading ? "animate-pulse" : ""}`}>
+                        {stats.issues}
+                      </div>
                     </div>
                   </div>
 
@@ -340,102 +350,47 @@ export default function SkillsPage() {
                     Most Used Languages
                   </h3>
 
-                  {/* Top 4 Languages with Progress Bars */}
+                  {/* Top Languages with Progress Bars - Dynamic from GitHub API */}
                   <div className="space-y-3">
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-medium">
-                          TypeScript
-                        </span>
-                        <span className="text-blue-400 text-sm">55.24%</span>
+                    {stats.languages.map((lang) => (
+                      <div key={lang.name}>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-white text-sm font-medium">
+                            {lang.name}
+                          </span>
+                          <span
+                            className={`text-sm ${isLoading ? "animate-pulse" : ""}`}
+                            style={{ color: lang.color }}
+                          >
+                            {lang.percentage}%
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-700 rounded-full h-2">
+                          <div
+                            className="h-2 rounded-full transition-all duration-1000"
+                            style={{
+                              width: `${lang.percentage}%`,
+                              backgroundColor: lang.color,
+                            }}
+                          ></div>
+                        </div>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-blue-500 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: "55.24%" }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-medium">
-                          JavaScript
-                        </span>
-                        <span className="text-yellow-400 text-sm">23.79%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-yellow-500 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: "23.79%" }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-medium">
-                          Python
-                        </span>
-                        <span className="text-blue-300 text-sm">8.23%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-blue-400 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: "8.23%" }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-medium">
-                          Others
-                        </span>
-                        <span className="text-gray-400 text-sm">12.74%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-gray-500 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: "12.74%" }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-medium">
-                          Go
-                        </span>
-                        <span className="text-cyan-400 text-sm">新規追加</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-cyan-500 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: "5%" }}
-                        ></div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
 
-                  {/* Compact Language Icons */}
-                  <div className="flex justify-center items-center mt-6 space-x-4">
-                    <div className="flex items-center space-x-1">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                      <span className="text-gray-300 text-xs">TS</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <span className="text-gray-300 text-xs">JS</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                      <span className="text-gray-300 text-xs">PY</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                      <span className="text-gray-300 text-xs">Others</span>
-                    </div>
+                  {/* Compact Language Icons - Dynamic */}
+                  <div className="flex justify-center items-center mt-6 flex-wrap gap-3">
+                    {stats.languages.slice(0, 4).map((lang) => (
+                      <div key={lang.name} className="flex items-center space-x-1">
+                        <div
+                          className="w-3 h-3 rounded-full"
+                          style={{ backgroundColor: lang.color }}
+                        ></div>
+                        <span className="text-gray-300 text-xs">
+                          {lang.name.slice(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -536,8 +491,8 @@ export default function SkillsPage() {
                 </div>
                 <div className="h-12 w-px bg-white/20"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">
-                    60+
+                  <div className={`text-3xl font-bold text-green-400 mb-1 ${isLoading ? "animate-pulse" : ""}`}>
+                    {stats.totalRepos}+
                   </div>
                   <div className="text-gray-300 text-sm">Repositories</div>
                 </div>

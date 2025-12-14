@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: "Portfolio",
     images: [
       {
-        url: "/vercel.svg",
+        url: "https://bskportfolio.vercel.app/api/og?title=Kinjo_Tatsuro%20Portfolio",
         width: 1200,
         height: 630,
-        alt: "Portfolio - Full Stack Developer",
+        alt: "Kinjo_Tatsuro Portfolio - Full Stack Developer",
       },
     ],
     locale: "ja_JP",
@@ -63,7 +63,9 @@ export const metadata: Metadata = {
     title: "Portfolio - Full Stack Developer",
     description:
       "フルスタックエンジニアのポートフォリオ。React、Next.js、TypeScript、Go言語を使用したWebアプリケーション開発の実績を紹介",
-    images: ["/vercel.svg"],
+    images: [
+      "https://bskportfolio.vercel.app/api/og?title=Kinjo_Tatsuro%20Portfolio",
+    ],
   },
   robots: {
     index: true,
