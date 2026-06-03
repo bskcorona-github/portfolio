@@ -48,8 +48,25 @@ import {
   SiBlender,
   SiRedis,
   SiQiita,
+  SiLivewire,
+  SiRadixui,
+  SiSwr,
+  SiReacthookform,
+  SiVitest,
+  SiTestinglibrary,
+  SiStorybook,
+  SiBiome,
+  SiServerless,
 } from "react-icons/si";
-import { FaDatabase, FaServer, FaRobot, FaMagic } from "react-icons/fa";
+import {
+  FaDatabase,
+  FaServer,
+  FaRobot,
+  FaMagic,
+  FaLayerGroup,
+  FaTheaterMasks,
+  FaPlug,
+} from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 import { MdWork, MdChat, MdGroup } from "react-icons/md";
@@ -75,6 +92,7 @@ export default function SkillsPage() {
         { name: "Vue.js", icon: SiVuedotjs, color: "#4fc08d" },
         { name: "Nuxt.js", icon: SiNuxtdotjs, color: "#00dc82" },
         { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
+        { name: "Livewire", icon: SiLivewire, color: "#fb70a9" },
         { name: "Express.js", icon: SiExpress, color: "#000000" },
         { name: "Framer Motion", icon: SiFramer, color: "#0055ff" },
       ],
@@ -85,8 +103,32 @@ export default function SkillsPage() {
       icon: "🎨",
       skills: [
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
+        { name: "Radix UI", icon: SiRadixui, color: "#8b5cf6" },
         { name: "Material UI", icon: SiMui, color: "#007fff" },
         { name: "Figma", icon: SiFigma, color: "#f24e1e" },
+      ],
+    },
+    {
+      id: "state-data",
+      name: "State & Data Fetching",
+      icon: "🔄",
+      skills: [
+        { name: "Jotai", icon: FaLayerGroup, color: "#7c3aed" },
+        { name: "SWR", icon: SiSwr, color: "#38bdf8" },
+        { name: "react-hook-form", icon: SiReacthookform, color: "#ec5990" },
+        { name: "WebSocket", icon: FaPlug, color: "#22c55e" },
+      ],
+    },
+    {
+      id: "testing-quality",
+      name: "Testing & Quality",
+      icon: "🧪",
+      skills: [
+        { name: "Vitest", icon: SiVitest, color: "#6da539" },
+        { name: "Testing Library", icon: SiTestinglibrary, color: "#e33332" },
+        { name: "Playwright", icon: FaTheaterMasks, color: "#2ead33" },
+        { name: "Storybook", icon: SiStorybook, color: "#ff4785" },
+        { name: "Biome", icon: SiBiome, color: "#60a5fa" },
       ],
     },
     {
@@ -135,6 +177,7 @@ export default function SkillsPage() {
         { name: "AWS", icon: SiAmazon, color: "#ff9900" },
         { name: "AWS Lambda", icon: SiAwslambda, color: "#ff9900" },
         { name: "Vercel", icon: SiVercel, color: "#000000" },
+        { name: "Serverless Framework", icon: SiServerless, color: "#fd5750" },
         { name: "Docker", icon: SiDocker, color: "#2496ed" },
         { name: "Ubuntu", icon: SiUbuntu, color: "#e95420" },
         { name: "Jenkins", icon: SiJenkins, color: "#d33833" },

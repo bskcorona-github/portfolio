@@ -25,15 +25,22 @@ export default function ProjectsPage() {
   // Webアプリケーション・ランディングページ
   const webProjects: WebProject[] = [
     {
-      title: "BattleFlow",
+      title: "LoL Team Balancer",
       description:
-        "日本最大のMCバトル情報プラットフォーム。UMB、フリースタイルダンジョン、高校生ラップ選手権などの情報を提供し、MC一覧、バトル動画、ファン投票によるランキング機能を備えています。",
+        "League of Legendsのカスタムゲーム（内部スクリム）向けチーム分けツール。10人を126通り全探索し、最もバランスの取れた5v5へ自動編成します。Riotランクに依存しない独自ELOレーティング、メイン/サブ/可/不可の5×4ロール評価マトリクス、シーズン制ランキング・MVP記録、Discord連携に対応。登録不要・招待リンク制で、現在800人のユーザーに利用されています。",
       image:
-        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      language: "React",
+        "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
       category: "webapp",
-      url: "https://battleflow.vercel.app/",
-      technologies: ["React", "TypeScript", "Vercel"],
+      url: "https://lol-team-balancer-delta.vercel.app/",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "ELO Rating",
+        "Discord",
+        "Vercel",
+      ],
       type: "Webアプリケーション",
     },
     {
@@ -97,18 +104,6 @@ export default function ProjectsPage() {
       type: "Webアプリケーション",
     },
     {
-      title: "なんくるリサイクル",
-      description:
-        "沖縄の中古・フリマの掘り出し物を毎日追加するコミュニティマーケット。カテゴリ・エリア検索、出品導線、マイページ、ブログ・FAQなどを備えた地域密着型サイト。",
-      image:
-        "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      language: "Next.js",
-      category: "webapp",
-      url: "https://nankuru-recycle.vercel.app/",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-      type: "Webアプリケーション",
-    },
-    {
       title: "BeautySalon",
       description:
         "美容サロンのランディングページ。サービス一覧、よくある質問、予約機能などを備えたレスポンシブなデザインです。心地よい空間と最高品質のトリートメントを提供する美容サロンのブランディングを表現しています。",
@@ -133,18 +128,6 @@ export default function ProjectsPage() {
       type: "ランディングページ",
     },
     {
-      title: "Shopify Demo Store",
-      description:
-        "Shopifyの機能とカスタマイズ性を実証するためのデモストア。ECサイトの基本機能、商品管理、決済システム、管理画面の操作などを体験できる実装例です。モダンなデザインとレスポンシブ対応で、実際のECサイト運営に必要な機能を網羅しています。",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      language: "Shopify",
-      category: "webapp",
-      url: "https://test-bsk-coronas-projects.vercel.app/",
-      technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "EC"],
-      type: "ECサイト",
-    },
-    {
       title: "訪問看護ステーション沖縄",
       description:
         "沖縄県で24時間365日対応の訪問看護サービスを提供するステーションの公式サイト。在宅療養中の患者様とご家族様を、経験豊富な看護師がサポートします。医療機関との連携により、継続的で質の高い看護サービスをご提供するプロフェッショナルな医療サービスサイトです。",
@@ -157,18 +140,6 @@ export default function ProjectsPage() {
       type: "医療サービスサイト",
     },
     {
-      title: "顧客管理システム",
-      description:
-        "企業向けの包括的な顧客管理システム（CRM）。ダッシュボード、顧客情報管理、予約管理、売上分析、サービス管理、リソース設定などの機能を備えた本格的なビジネス管理ツールです。ログイン認証機能付きで、セキュアな顧客データ管理を実現します。",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      language: "Next.js",
-      category: "webapp",
-      url: "https://kokyakukanri-mvp.vercel.app/",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Authentication", "CRM"],
-      type: "CRMシステム",
-    },
-    {
       title: "るーぷくん",
       description:
         "YouTube動画を指定した区間でループ再生できるツール。mm:ssまたは秒.ミリ秒形式で開始/終了を設定可能。YouTube IFrame Player APIを使用した視聴補助ツールで、音楽練習や語学学習に最適です。Space/S/Eキーのショートカットにも対応。",
@@ -179,6 +150,18 @@ export default function ProjectsPage() {
       url: "https://rupukun.vercel.app/",
       technologies: ["JavaScript", "YouTube IFrame API", "HTML", "CSS", "Vercel"],
       type: "Webアプリケーション",
+    },
+    {
+      title: "カネマサ建物 - 沖縄の別荘・不動産管理",
+      description:
+        "沖縄で別荘・賃貸物件の管理を行う不動産管理会社のランディングページ。約40年・500件以上の実績、宅地建物取引士による直接相談、月額11,000円〜の管理プランなどを訴求。信頼感を重視した構成とレスポンシブ対応で、問い合わせ導線まで設計しています。",
+      image:
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      language: "Next.js",
+      category: "webapp",
+      url: "https://kanemasa-tatemono-lp.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      type: "ランディングページ",
     },
   ];
 
