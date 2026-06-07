@@ -168,21 +168,21 @@ export const PersonalitySection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-lg"></div>
               <CardContent className="p-8">
                 <div className="flex items-center justify-center gap-4 mb-6">
-                  <div className="text-4xl">👑</div>
+                  <div className="text-4xl">🔮</div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">
-                      ENFJ - 主人公型
+                      INFJ - 提唱者型
                     </h3>
                     <p className="text-purple-300 font-medium">
-                      The Protagonist
+                      The Advocate
                     </p>
                   </div>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  他者の成長を促進し、理想を現実に変える情熱的なリーダー。
-                  チームの調和を重視しながら、全員が最高のパフォーマンスを発揮できる環境づくりに専念。
+                  確固たる信念と理想を持ち、物事の本質を見抜く洞察力に優れたタイプ。
+                  目先の課題だけでなく、その先にある目的や価値を見据えて行動します。
                   エンジニアとして技術的な卓越性を追求すると同時に、
-                  人とのつながりを大切にした開発スタイルを実践しています。
+                  ユーザーやチームへの深い共感を大切にした開発スタイルを実践しています。
                 </p>
               </CardContent>
             </Card>
